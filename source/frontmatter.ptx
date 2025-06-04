@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<frontmatter xml:id="frontmatter" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <titlepage>
+        <author>
+          <personname>Francesca Gandini</personname>
+          <department>Department of Mathematics, Statistics, and Computer Sciences</department>
+          <institution>St. Olaf College</institution>
+        </author>
+      <credit>
+        <title>Contributing Authors</title>
+        <author>
+          <personname>Sasha Arasha</personname>
+            <department>MSCS</department>
+            <institution>St. Olaf College</institution>
+        </author>
+        <author>
+          <personname>Marcus Cassell</personname>
+            <department>MSCS</department>
+            <institution>St. Olaf College</institution>
+        </author>
+        <author>
+          <personname>Al Ashir Intisar</personname>
+            <department>MSCS</department>
+            <institution>St. Olaf College</institution>
+        </author>
+
+        <author>
+          <personname>Gordon Novak</personname>
+          <department>MSCS</department>
+          <institution>St. Olaf College</institution>
+        </author>
+        
+        <author>
+          <personname>Sumner Strom</personname>
+          <department>MSCS</department>
+          <institution>St. Olaf College</institution>
+        </author>
+      </credit>
+      <date>
+        <today />
+      </date>
+    </titlepage>
+
+    <preface xml:id="pr-abstract">
+      <title>Abstract</title>
+      <p>
+        This is an introductory textbook into invariants with a special focus on the InvariantRings Package in Macaulay 2.
+      </p>
+    </preface>
+
+    <xi:include href="colophon.ptx" />
+  
+    <xi:include href="pr-acknowledgements.ptx" />
+
+  </frontmatter>

@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='utf-8'?>
+<chapter xml:id="ch-permutation-actions">
+<title>Permutation actions</title>
+<section> 
+  <p>
+The symmetric group <m>S_n </m> acts naturally on <m>\{1, ... , n\}</m> by permuting its elements.
+This action allows us to define a representation <m>V \cong \mathbb{K}^n</m> where 
+on the basis vectors <m>\{e_1, ... , e_n\}</m>,
+the permutation <m>\sigma</m> acts by <m>\sigma \cdot e_i = e_{\sigma(i)}</m>.
+As <m>S_n </m> acts on <m>V</m> by permuting its basis vectors, we have that <m>V</m> is a 
+permutation representation induced by the permutation action of <m>S_n</m>.
+                </p>
+
+<example>
+  <p>
+Consider the group <m>S_4</m>. The matrix for the action of <m> (1 \,2\,3\,4) </m> 
+is given by
+<me> M_{(1 \,2\,3\,4)} =  \begin{pmatrix}
+0 \amp 1 \amp 0 \amp 0 \\
+0 \amp 0 \amp 1 \amp 0 \\
+0 \amp 0 \amp 0 \amp 1 \\
+1 \amp 0 \amp 0 \amp 0 
+\end{pmatrix}   
+</me>
+and then we have it acting on a vector by matrix multiplication,
+<me> \begin{pmatrix}
+0 \amp 1 \amp 0 \amp 0 \\
+0 \amp 0 \amp 1 \amp 0 \\
+0 \amp 0 \amp 0 \amp 1 \\
+1 \amp 0 \amp 0 \amp 0 
+\end{pmatrix} \begin{pmatrix}
+v_1 \\
+v_2 \\
+v_3\\
+v_4
+\end{pmatrix}   =    \begin{pmatrix}
+v_4 \\
+v_1 \\
+v_2\\
+v_3
+\end{pmatrix}
+</me>
+</p>
+</example>
+
+<p> Now consider the action of the symmetric group <m>S_n</m> on the polynomial ring <m>R=\mathbb{K}[x_1,x_2,...,x_n]</m>.
+The symmetric polynomials are the invariant polynomials under this action..
+</p>
+<definition xml:id="def-symmetricpolynomial">
+  <statement>
+    <p>
+      We call <m>f \in R</m>, a symmetric polynomial if 
+      <me>f(x_1,x_2,...,x_n) = f(x_{\sigma(1)},x_{\sigma(2)},...,x_{\sigma(n)})</me> 
+      for all permutations of <m>\sigma \in S_n</m>.
+    </p>
+  </statement>
+</definition>
+<p>
+  An example of symmetric polynomials is given by the <term>elementary symmetric polynomials</term>.
+</p>
+<definition xml:id="def-elemsymm">
+  <statement>
+    <p>
+      The elementary symmetric polynomials <m>e_0,e_1,...,e_n</m> in <m>\mathbb{K}[x_1,...,x_n]</m> 
+      are defined by 
+      <me>e_{m}=\sum_{|J|=m} \bar x_J = \sum_{j_1 \lt j_2 \lt ... \lt j_m} x_{j_1}x_{j_2}...x_{j_m}, </me>
+      with <m>e_0=1</m>.
+    </p>
+  </statement>
+</definition>
+<p>
+  More generally, we can consider a permutation action by some subgroup <m>G</m> of <m>S_n</m>.
+For any monomial in <m>R</m>, we can consider its orbit under the action of <m>G</m>.
+  </p>
+  <definition xml:id="def-orbit">
+  <statement>
+    <p>
+     The <m>G-orbit</m> of any element <m>f \in R</m> is 
+     <me>\text{orb}(f) = \{g \cdot f \mid g \in G\}</me>.
+    </p>
+  </statement>
+</definition>
+<p>
+  Any permutation in <m>G</m> acts on the orbit <m>\text{orb}(f)</m> by rearranging its elements.
+  As a result, the orbit sums will give us invariant polynomials.
+</p>
+<definition xml:id="def-orbitsum">
+  <statement>
+    <p>
+      The orbit sum of <m>f</m> the sum of over the elements of  <m>\text{orb}(f)</m>.
+    </p>
+  </statement>
+</definition>
+
+<p>
+  We can find a set of minimal invariants by computing all orbit sums of all monomials of degree <m>\lt |G|</m>.
+  But this is computationally expensive and will lead to a lot of redundant computations. 
+  Instead, we will use a result that tells us that we only need to compute the orbit sums of some special monomials. 
+  Consider the exponent sequence <m>\beta</m> of a monomial <m>\bar x^{\bar \beta}</m> and rearrange it to 
+  obtain an integer partition <m>\lambda</m>, where <m>\lambda_1 \gt \lambda_2 \gt ... \gt \lambda_m</m>
+</p>
+ 
+<definition xml:id="def-specialmonomials">
+  <statement>
+    <p>
+      We call a monomial <term>special</term> if the entries in its associated partition decrease by at most one at each step 
+      and the last entry is 0.
+    </p>
+  </statement>
+</definition>
+<p>
+  The definition of special depends on the number of variables or the number of parts in the integer partition.
+  So <m>x_1^n x_2^{n-1}....x_{n-1}^1 x_n^0</m> would not be special within <m>\mathbb{K}[x_1, ... , x_{n-1}]</m>, 
+but it is special in <m>\mathbb{K}[x_1, ... , x_{n}]</m>.
+</p>
+
+
+<theorem xml:id="thm-gobel">
+  <statement>
+    <p>
+      (Göbel) Let <m>\phi:G \mapsto \text{GL}(n,\mathbb{K})</m> be a permutation 
+      representation of a finite group acting on <m>R = \mathbb{K}[x_1,...,x_n]</m>. 
+      Then the ring of invariants <m>R^G</m>
+      is generated as an algebra 
+      by the top elementary symmetric function <m>e_n = x_1...x_n</m> and the orbit sum of the special monomials.
+    </p>
+  </statement>
+</theorem>
+
+<corollary xml:id="cor-gobel">
+  <statement>
+    <p>
+      (Göbel's Bound) In a permutation representation of dimension at least 3, the degree of a minimal generating invariant is at most 
+      <m>\binom{n}{2}</m>.
+    </p>
+  </statement>
+</corollary>
+<p>
+  We have that the bound follows from the theorem as the degree of a special momial is at most 
+      <m>\binom{n}{2}</m> and this is larger than <m>n</m>, the degree of <m>e_n</m>, when <m>n \geq 3</m>.
+</p>
+<p>
+To show that orbits of special monomial generate the ring of invariants, one needs to consider a reduction argument.
+If you start with a non-special monomial, the entries of its partition are not decreasing by at most 1 and 
+we call the first place where there is a jump a <m>gap</m> in the partition. 
+Starting from a non-special monomial we can obtain a reduced monomial
+by decreasing all the largest exponents up to the gap by one.
+The reduced monomial will be closer to being special as the gap itself will be reduced by 1. 
+</p>
+
+<example>
+  In the ring <m>\mathbb{K}[x_1,x_2,x_3,x_4]</m> we have the non-special monomial <m>x_1^2x_2^4x_3 </m>. 
+  The gap occurs at the second entry of the partition <m>(4,2,1)</m> so the reduction would give us
+  <me>
+    x_1^2x_2^4x_3 \mapsto x_1^2x_2^3 x_3,
+  </me>
+  and produced a special monomial.
+</example>
+
+<p>
+  Algorithmically, we can reduce any monomial to a special one by reducing the upper degrees repeatedly until the 
+  monomial is special. So the general idea of the proof of Gobel's theorem is to show that the orbit sum of any monomial
+  can be rewritten as a sum of orbit sums of special monomials or special monomials times some power of <m>e_n</m>.
+  In our ongoing work we are using Gobel's theorem as a tool for reducing the complexity of computing invariants for permutation actions. 
+</p>
+
+  </section>
+
+
+   
+
+</chapter>

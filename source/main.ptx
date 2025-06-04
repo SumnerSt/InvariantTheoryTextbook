@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <docinfo>
+    <macros>
+      \newcommand{\R}{\mathbb R}
+    </macros>
+    <latex-image-preamble>
+      \usepackage{tikz}
+    </latex-image-preamble>
+    <!-- <brandlogo 
+      source="g4m.png" /> -->
+  </docinfo>
+
+  <book xml:id="g4msto">
+    <title>Invariant Ring Theory in M2</title>
+    <subtitle>St. Olaf textbook edition</subtitle>
+    <xi:include href="frontmatter.ptx" />
+  
+    <xi:include href="ch-intro-invariant.ptx"/>
+    <xi:include href="ch-representation-theory.ptx"/>
+    <xi:include href="ch-algorithms.ptx"/>
+    <xi:include href="ch-permutation-actions.ptx"/>
+    <xi:include href="ch-groebner-basis.ptx"/> 
+    <xi:include href="ch-skew-invariants.ptx"/> 
+    
+
+
+    <backmatter xml:id="backmatter">
+      <title>Backmatter</title>
+      <xi:include href="ax-related.ptx"/>
+      <xi:include href="ax-additional-topics.ptx"/>
+      <appendix xml:id="ax-defs-notes">
+        <title>Definitions and Notes Quick Ref</title>
+        <list-of elements="definition note" divisions="section" empty="no" />
+      </appendix>
+      <colophon>
+        <p> This book was authored in <pretext />. </p>
+      </colophon>
+    </backmatter>
+
+  </book>
+</pretext>

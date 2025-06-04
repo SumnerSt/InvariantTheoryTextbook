@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='utf-8'?>
+<chapter xml:id="ch-intro-invariant">
+    <title>A concrete introduction to invariant rings</title>
+    <introduction>
+        <p>
+This chapter is co-authored by Francesca Gandini, Al Ashir Intisar, and Sumner Strom. 
+In this chapter we will present an overview of the theory behind the algorithms implemented in the <url href="https://www.macaulay2.com/doc/Macaulay2/share/doc/Macaulay2/InvariantRing/html/index.html">InvariantRing</url> software package 
+in the open-source Computer Algebra System <url href="http://www2.macaulay2.com">Macaulay2 (M2)</url>.
+        </p>
+
+        <p>
+          You can access an online version of this chapter with live code cell at <url href="https://fragandi.github.io/CURITutorialDevelopment2025/"></url>.
+          There you can also learn how to set up a virtual machine on Github with Codespaces so that you write and run M2 code from anywhere.
+          A turn-key repository for creating a Codespace
+           <!-- (<xref ref="sec-codespaces"/>)  -->
+           for Macaulay2 is available at
+        <url href="https://github.com/fragandi/M2-codespace">fragandi/M2-codespace</url>. 
+        </p>
+        <p>
+          We also include some background on orbit sums necessary to implement an algorithm to compute invariants for permutations actions. 
+          We have worked with a group of collaborators on the first version of the code for this algorithm at the Macaulay2 Workshop at Tulane University in April 2025
+          and plan to further test it and release it with Macaulay2 in Fall 2025.
+        </p>
+        <p>
+          We finish the chapter with a selection of examples that illustrate the current capabilities of the InvariantRing package.
+          You can run the provided code in your local installation of M2 or go to the online version and execute the code cells on your browser.
+          This works  well even on mobile devices!
+        </p>
+    </introduction>
+
+<section xml:id="sec-invariantrings">
+       <title>A concrete introduction to invariant rings</title>
+       <!-- <subsection xml:id="subsec-introduction">
+        <title>Introduction to invariant theory</title>
+                <p>
+                    With our research we also had  a large focus on making the theory behind invariant rings accessible 
+                  and digestible for undergraduate students. This included making a chapter covering some computational tools 
+                  within invariant theory briefly. We used this to work on a packet, Orbit Sums, in Macaulay2 for efficient computing of permutation groups 
+                  within invariant rings.
+
+                </p>
+    </subsection> -->
+    <!--we should put an introduction into representation thoery here just for readability of notation at an undergraduate level-->
+       <subsection xml:id="subsec-finite-matrix-groups">
+        <title>Finite Matrix Groups</title>
+        <p>
+          We can think of a (linear) action within a group as acting on a vector space
+          concretely by interpreting each group element as a matrix and describing the action as matrix multiplication on vectors.
+          We can then evaluate any polynomial on a vector space of its indeterminants and its image after the group action.
+        </p>
+<example>
+   <p>
+        Consider <me>M =  \begin{pmatrix}
+1 \amp 0 \\
+0 \amp -1 \\
+\end{pmatrix} </me> and the vector <m>\bar x = \begin{pmatrix} x\\ y\\ \end{pmatrix}</m>
+This gives <m>M \bar x = \begin{pmatrix}
+x \\
+-y  \\
+\end{pmatrix}</m>. Thus for the polynomial <me> f(\bar x) = f(\begin{pmatrix}
+x \\
+y  \\
+\end{pmatrix}) = x+y</me> and we have, <me>f(M\bar x) = f(\begin{pmatrix}
+x \\
+-y  \\
+\end{pmatrix})= x-y</me>.
+
+    </p>
+</example>
+<p>
+  More formally, for <m> G </m> a finite group we will consider a linear representation of <m> G </m>  
+        via its action on a finite dimensional vector space <m>V </m> over a field <m>K </m> of characteristics zero. 
+        In general, most of the results in this chapter hold in the non-modular case 
+        i.e., when the characteristics of the field does not divide the order of the group. 
+        As of now finite fields are not fully supported by the current version of the InvariantRing package 
+        and such functionalities are an active area of development.   
+</p>
+      
+<p>
+  If <m> V </m> is faithful representation of <m> G </m> of dimension <m> m</m>, the image of the representation is isomorphic to <m> G </m> 
+  and so we consider <m> G </m> as a finite <term>matrix group</term>.
+</p>
+   
+        <definition><p> 
+          Suppose <m>|G| &lt; \infty</m> and <m>G \leq GL_m(\mathbb{K})</m>,  then <m>G</m> is a <em>finite matrix group.</em>
+        
+        </p></definition>
+  <example>
+     <p>
+        Let us consider a two-dimesional representation of <m>C_2</m>, the cyclic group of order 2. <me>\left\langle \begin{pmatrix}
+1 \amp 0 \\
+0 \amp -1 \\
+\end{pmatrix} \right\rangle = \left\{ \begin{pmatrix}
+1 \amp 0 \\
+0 \amp -1 \\
+\end{pmatrix},\begin{pmatrix}
+1 \amp 0 \\
+0 \amp 1 \\
+\end{pmatrix} \right \} \cong C_2</me>
+    </p>
+  </example>
+    </subsection>
+
+
+    <subsection xml:id="subsec-invariant-rings">
+        <title>Invariant Rings</title>
+        <p> We will work with a polynomial ring in <m>n</m> variables over the field <m>\mathbb{K}</m>.  
+          We use the 
+            notation <m>\bar x = (x_1, x_2,..., x_n)</m> and abuse it by saying <m>\mathbb{K}[x_1,x_2,...,x_n]=\mathbb{K}[\bar x]</m> and 
+            <m>f(x_1,x_2,...,x_n)=f(\bar x)</m> for <m>f \in \mathbb{K}[\bar x]</m>. 
+</p>
+
+            <definition> <p> Let <m>G</m> be a finite matrix group within <m>GL_n(\mathbb{K})</m>. We say that
+<m>f\in \mathbb{K}[\bar x]</m> is invariant under the action of <m>G</m> if and only if
+<me>
+  f(A\bar x) = f(\bar x),
+</me>
+for all <m>A \in G</m>.
+ </p></definition>
+
+
+<example>
+  <p>
+The polynomials <m>f(\bar x)=x</m> and <m>f(\bar x) = x +y^2</m> in <m>\mathbb{K}[x,y]</m> are invariant under the action of <me>C_2 = \left\langle\begin{pmatrix}
+1 \amp 0 \\
+0 \amp -1 \\
+\end{pmatrix} \right\rangle</me>
+However the polynoial <m>f(\bar x)=x+y</m> is not.
+        </p>
+</example>
+
+        <p> We can consider the set of all invariant polynomials under some action of a group <m>G </m>. 
+          A good exercise is to prove that this set has the structure of a ring.
+           </p>
+            <definition><p> Let <m>R= \mathbb{K}[\bar x]</m>. We define the <em>invariant ring</em> for the action of <m>G</m> on <m>R</m> as,
+              <me>R^G : =  \{f \in R \, | f(A\bar x) = f(\bar x), \, \forall A \in G\} \subseteq R.</me>
+            </p></definition>
+    </subsection>
+
+
+    <subsection xml:id="subsec-reynolds-operator">
+        <title>Reynolds Operator</title>
+        <p> We have that the invariant ring <m>R^G</m> is a subring of the ring <m>R= \mathbb{K}[\bar x]</m>. 
+          However, it is not an ordinary subring. In characteristic zero, 
+          we have a <term>projection</term> from <m>R</m> to <m>R^G</m> 
+          that respects the action of <m>G</m>. The idea: "averaging" over the action of <m>G</m> we get an invariant polynomial.
+        </p>
+       
+            <definition> 
+              <p> The <em>Reynolds map</em> (averaging map) <m>R_G: R \xrightarrow{} R^G</m> is given by 
+                <me>R_G(f) = \frac{1}{|G|} \sum_{A\in G} f(A \bar x) </me>
+        </p>
+      </definition>
+        <example>
+          <p>Example for a Group action <m>C_2 = \left\langle\begin{pmatrix}
+            1 \amp 0 \\
+            0 \amp -1 \\
+            \end{pmatrix}\right\rangle</m>. 
+            Consider the polynomial <m>x+y</m>, which is not invariant under the action of <m>C_2</m>.
+            We have that: 
+            <me>R_G(x+y) = \frac{1}{2} ((x+y) + (x-y)) = x\in R^G</me>
+and we can check that <m>R_G(x+y)=x</m> is indeed invariant.
+        </p>
+        </example>
+    </subsection>
+</section>
+
+   
+</chapter>
