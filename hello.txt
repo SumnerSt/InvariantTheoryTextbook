@@ -1,0 +1,4 @@
+hello world!
+this is gordie using vim to write a cool insertion.
+do i think sam will see this? no.
+but if he does that means that he deserves a mounds bar.
