@@ -1,0 +1,78 @@
+INFO    : Since no target was supplied, we will use "web".
+
+INFO    : Building target web
+INFO    : XSL conversion of /workspaces/InvariantTheoryTextbook/source/main.ptx by /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : successful application of /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : Generating any needed assets.
+INFO    : XSL conversion of /workspaces/InvariantTheoryTextbook/source/main.ptx by /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : successful application of /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : XSL conversion of /workspaces/InvariantTheoryTextbook/source/main.ptx by /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : successful application of /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : XSL conversion of /workspaces/InvariantTheoryTextbook/source/main.ptx by /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : successful application of /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : XSL conversion of /workspaces/InvariantTheoryTextbook/source/main.ptx by /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : successful application of /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : XSL conversion of /workspaces/InvariantTheoryTextbook/source/main.ptx by /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : successful application of /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : XSL conversion of /workspaces/InvariantTheoryTextbook/source/main.ptx by /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : successful application of /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : XSL conversion of /workspaces/InvariantTheoryTextbook/source/main.ptx by /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : successful application of /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : XSL conversion of /workspaces/InvariantTheoryTextbook/source/main.ptx by /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : successful application of /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : XSL conversion of /workspaces/InvariantTheoryTextbook/source/main.ptx by /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : successful application of /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : XSL conversion of /workspaces/InvariantTheoryTextbook/source/main.ptx by /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : successful application of /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : XSL conversion of /workspaces/InvariantTheoryTextbook/source/main.ptx by /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : successful application of /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : XSL conversion of /workspaces/InvariantTheoryTextbook/source/main.ptx by /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : successful application of /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : XSL conversion of /workspaces/InvariantTheoryTextbook/source/main.ptx by /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : successful application of /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : XSL conversion of /workspaces/InvariantTheoryTextbook/source/main.ptx by /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : successful application of /home/codespace/.ptx/2.17.0/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : Finished generating assets.
+
+INFO    : Preparing to build into /workspaces/InvariantTheoryTextbook/output/web.
+INFO    : discovering source file's directory name: /workspaces/InvariantTheoryTextbook/source
+INFO    : verifying and expanding input directory: /workspaces/InvariantTheoryTextbook/source/../generated-assets
+INFO    : input directory expanded to absolute path: /workspaces/InvariantTheoryTextbook/generated-assets
+INFO    : verifying and expanding input directory: /workspaces/InvariantTheoryTextbook/source/../assets
+INFO    : input directory expanded to absolute path: /workspaces/InvariantTheoryTextbook/assets
+INFO    : XSL conversion of /workspaces/InvariantTheoryTextbook/source/main.ptx by /home/codespace/.ptx/2.17.0/core/xsl/utilities/report-publisher-variables.xsl
+INFO    : successful application of /home/codespace/.ptx/2.17.0/core/xsl/utilities/report-publisher-variables.xsl
+INFO    : Downloading rs services file from https://runestone.academy/cdn/runestone/latest/webpack_static_imports.xml.
+INFO    : Runestone Services via online CDN query: version 7.7.3
+INFO    : Downloading Runestone Services, version 7.7.3
+INFO    : Extracting Runestone Services from archive file
+INFO    : Building custom css theme: theme-denver
+INFO    : converting /workspaces/InvariantTheoryTextbook/source/main.ptx to HTML in /tmp/ptx-v035scvj
+INFO    : XSL conversion of /workspaces/InvariantTheoryTextbook/source/main.ptx by /home/codespace/.ptx/2.17.0/core/xsl/pretext-html.xsl
+INFO    : messages from the log for XSL processing:
+INFO    : * PTX:INFO:   checking ONLY the last TWO YEARS of element deprecations.
+Rerun with the string parameter "author.deprecations.all" set to "yes" to check your source against all deprecations.
+ERROR   : * PTX:ERROR:      The @xml:id "ch-representation theory" is invalid.  Use only letters, numbers, hyphens and underscores.
+WARNING : * PTX:WARNING: In a chapter containing sections, any content that is not inside a section needs to be inside an <introduction> and/or  <conclusion>.
+INFO    : *              located within: "ch-representation theory" (xml:id), "Representation theory" (title)
+WARNING : * PTX:WARNING: In a section containing subsections, any content that is not inside a subsection needs to be inside an <introduction> and/or  <conclusion>.
+INFO    : *              located within: "Intro To Represenations" (title)
+WARNING : * PTX:DEPRECATE: (2024-10-08) elements previously included in a "titlepage" element inside the "frontmatter" (author, editor, credit, date, and event) should now be placed in "frontmatter/bibinfo".  To ensure a title page is created, put only the empty element "titlepage-items" inside "titlepage".  Until you move these elements, we will try to honor your intent. (1 time)
+INFO    : *              located within: "frontmatter" (xml:id)
+INFO    : * --------------
+WARNING : * PTX:DEPRECATE: (2024-10-08) elements previously included in a "colophon" element inside the "frontmatter" (credit, copyright, edition, and website) should now be placed in "frontmatter/bibinfo". To produce a "colophon", include only the empty element "colophon-items" inside "colophon" Until you move these elements, we will try to honor your intent. (1 time)
+INFO    : *              located within: "colophon" (xml:id)
+INFO    : * --------------
+INFO    : successful application of /home/codespace/.ptx/2.17.0/core/xsl/pretext-html.xsl
+WARNING : Failed to map codechat path to xml id; codechat will not work.
+INFO    : Removing temporary directory /tmp/ptx-v035scvj
+INFO    : Removing temporary directory /tmp/ptx-8ienx1fw
+INFO    : 
+Success! Run `pretext view web` to see the results.
+
+INFO    : 
+----------------------------------------------------
+INFO    : While running pretext, the following errors occurred:
+
+INFO    : (see log messages above or in the 'logs' folder for more information)
+INFO    : ----------------------------------------------------

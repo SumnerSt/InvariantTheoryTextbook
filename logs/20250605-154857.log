@@ -1,0 +1,10 @@
+ERROR   : View encountered an error.  Please report this: process 9574 with laddr 
+INFO    : Found server at localhost:8128
+INFO    : Server is already available at https://cautious-tribble-r4gv646j9x7v2pxvw-8128.app.github.dev
+INFO    : Now opening browser for target `web` at https://cautious-tribble-r4gv646j9x7v2pxvw-8128.app.github.dev/output/web
+INFO    : 
+----------------------------------------------------
+INFO    : While running pretext, the following errors occurred:
+
+INFO    : (see log messages above or in the 'logs' folder for more information)
+INFO    : ----------------------------------------------------

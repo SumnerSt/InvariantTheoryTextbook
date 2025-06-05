@@ -1,0 +1,5 @@
+/workspaces/InvariantTheoryTextbook/source/main.ptx:18:0:ERROR:RELAXNGV:RELAXNG_ERR_ELEMNAME: Expecting element idx, got subtitle
+/workspaces/InvariantTheoryTextbook/source/main.ptx:18:0:ERROR:RELAXNGV:RELAXNG_ERR_ELEMWRONG: Did not expect element subtitle there
+/workspaces/InvariantTheoryTextbook/source/main.ptx:16:0:ERROR:RELAXNGV:RELAXNG_ERR_CONTENTVALID: Element book failed to validate content
+/workspaces/InvariantTheoryTextbook/source/main.ptx:3:0:ERROR:RELAXNGV:RELAXNG_ERR_ELEMNAME: Expecting element docinfo, got pretext
+/workspaces/InvariantTheoryTextbook/source/main.ptx:3:0:ERROR:RELAXNGV:RELAXNG_ERR_ELEMWRONG: Did not expect element pretext there

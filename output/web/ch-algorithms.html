@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Degree Bounds and Algorithms</title>
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="preconnect" href="https://fonts.googleapis.com">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta xmlns:xlink="http://www.w3.org/1999/xlink" name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="og:type" content="book">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="book:title" content="Invariant Ring Theory in M2">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="book:author" content="Francesca Gandini">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.7.3';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.107bf2d9be20d9c4.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.c7bf407f76a97812.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.5bdeacdba067a0e3.css">
+<script xmlns:xlink="http://www.w3.org/1999/xlink" src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="g4msto.html"><span class="title">Invariant Ring Theory in M2:</span> <span class="subtitle">St. Olaf textbook edition</span></a></h1>
+<p class="byline">Francesca Gandini</p>
+</div></div></header><nav xmlns:xlink="http://www.w3.org/1999/xlink" id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="ch-representation-theory.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="g4msto.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-permutation-actions.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div xmlns:xlink="http://www.w3.org/1999/xlink" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div xmlns:xlink="http://www.w3.org/1999/xlink" id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="pr-abstract.html" class="internal"><span class="title">Abstract</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="acknowledgements.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-intro-invariant.html" class="internal"><span class="codenumber">1</span> <span class="title">A concrete introduction to invariant rings</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch-intro-invariant.html#sec-invariantrings" class="internal"><span class="codenumber">1.1</span> <span class="title">A concrete introduction to invariant rings</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-intro-invariant.html#subsec-finite-matrix-groups" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Finite Matrix Groups</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-intro-invariant.html#subsec-invariant-rings" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Invariant Rings</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-intro-invariant.html#subsec-reynolds-operator" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Reynolds Operator</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-representation-theory.html" class="internal"><span class="codenumber">2</span> <span class="title">Representation theory</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-representation-theory.html#ch-representation-theory-3" class="internal"><span class="codenumber">2.1</span> <span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch-representation-theory.html#ch-representation-theory-4" class="internal"><span class="codenumber">2.2</span> <span class="title">Intro To Represenations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-representation-theory.html#ch-representation-theory-4-15" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Group actions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-representation-theory.html#ch-representation-theory-4-16" class="internal"><span class="codenumber">2.2.2</span> <span class="title">What is a representation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-representation-theory.html#ch-representation-theory-4-17" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Characters</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-representation-theory.html#ch-representation-theory-4-18" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Representations of Abelian groups</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-representation-theory.html#ch-representation-theory-4-19" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Applications and further directions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch-representation-theory.html#ch-representation-theory-5" class="internal"><span class="codenumber">2.3</span> <span class="title">Further Examples</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-representation-theory.html#ch-representation-theory-5-2" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Representations</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-representation-theory.html#ch-representation-theory-6" class="internal"><span class="codenumber">2.4</span> <span class="title">References</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-algorithms.html" class="internal"><span class="codenumber">3</span> <span class="title">Degree Bounds and Algorithms</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch-algorithms.html#ch-algorithms-2" class="internal"><span class="codenumber">3.1</span> <span class="title"></span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-algorithms.html#subsec-noether-degree-bound" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Noether Degree Bound</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-algorithms.html#subsec-hilbert-ideal" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Hilbert Ideal</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-algorithms.html#subsec-presentations" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Presentations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-algorithms.html#subsec-graph-of-linear-actions" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Graph of Linear Actions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-algorithms.html#subsec-subspace-arrangement-approach" class="internal"><span class="codenumber">3.1.5</span> <span class="title">Subspace Arrangement Approach</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch-algorithms.html#sec-" class="internal"><span class="codenumber">3.2</span> <span class="title">Specialized algorithms</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-algorithms.html#subsec-AGWM" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Abelian Groups and Weight Matrices</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-permutation-actions.html" class="internal"><span class="codenumber">4</span> <span class="title">Permutation actions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-permutation-actions.html#ch-permutation-actions-2" class="internal"><span class="codenumber">4.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-groebner-basis.html" class="internal"><span class="codenumber">5</span> <span class="title">Gröbner Basis</span></a></div></li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-skew-invariants.html" class="internal"><span class="codenumber">6</span> <span class="title">Skew Invariant Theory</span></a></div></li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="ax-related.html" class="internal"><span class="codenumber">A</span> <span class="title">Additional Reading</span></a></div></li>
+<li class="toc-item toc-appendix">
+<div class="toc-title-box"><a href="ax-additional-topics.html" class="internal"><span class="codenumber">B</span> <span class="title">Additional Topics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ax-additional-topics.html#sec-github-desktop" class="internal"><span class="codenumber">B.1</span> <span class="title">GitHub Desktop</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ax-additional-topics.html#sec-vs-code-application" class="internal"><span class="codenumber">B.2</span> <span class="title">VS Code Application</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ax-additional-topics.html#sec-terminal" class="internal"><span class="codenumber">B.3</span> <span class="title">Using the Terminal</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="ax-defs-notes.html" class="internal"><span class="codenumber">C</span> <span class="title">Definitions and Notes Quick Ref</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-5.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section xmlns:xlink="http://www.w3.org/1999/xlink" class="chapter" id="ch-algorithms"><h2 class="heading">
+<span class="type">Chapter</span><span class="space"> </span><span class="codenumber">3</span><span class="space"> </span><span class="title">Degree Bounds and Algorithms</span>
+</h2>
+<section class="section" id="ch-algorithms-2"><h3 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">3.1</span><span class="space"> </span><span class="title"></span>
+</h3>
+<section class="introduction" id="ch-algorithms-2-1"><div class="para" id="ch-algorithms-2-1-1">Our goal is to find algorithms that provide us with a description of all possible invariants in an efficient way. Formally, we look for <dfn class="terminology">minimal generators</dfn> for the ring of invariants <span class="process-math">\(R^G\)</span> and more precisely for minimal algebra generators for <span class="process-math">\(R^G\)</span> as an algebra over the coefficient field <span class="process-math">\(\mathbb{K}\text{.}\)</span>
+</div>
+<div class="para" id="ch-algorithms-2-1-2">For our search to be successful, we need to hope that there are finitely many generators. In our setup (finite groups and characteristic zero) a consequence of Hilbert’s Basis Theorem is that our invariant rings are finitely generated. However, we will run in computational troubles if we do not have a stopping point for our search. The most effective way is to provide a bound the degrees of these generators.</div></section><section class="subsection" id="subsec-noether-degree-bound"><h4 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">3.1.1</span><span class="space"> </span><span class="title">Noether Degree Bound</span>
+</h4>
+<div class="para" id="subsec-noether-degree-bound-2">A beautiful theorem of Noether establishes that we have a bound on the degree of a minimal generator independent from the action itself, but just in terms of the order of the group. Moreover, we only need to look at images of monomials under the Reynolds operator.</div>
+<article class="theorem theorem-like" id="subsec-noether-degree-bound-3"><h5 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.1.1</span><span class="period">.</span>
+</h5>
+<div class="para logical" id="subsec-noether-degree-bound-3-1">
+<div class="para">The <em class="emphasis">Noether Degree Bound</em> claims a ring of invariants is generated in degrees <span class="process-math">\(\leq |G|\)</span> giving,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+R^G = \mathbb{K} [ R_G(\bar x^{\bar \beta}) | \; |\bar \beta| \leq |G|].
+\end{equation*}
+</div>
+</div></article><div class="para" id="subsec-noether-degree-bound-4"></div>
+<div class="para" id="subsec-noether-degree-bound-5">Noether’s result is a constructive tool that provides us with a computational strategy! We can apply <span class="process-math">\(R_G\)</span> to all the finitely many monomials in degrees <span class="process-math">\(\leq |G|\)</span> to get generators for <span class="process-math">\(R^G\text{.}\)</span> As the number of monomials grows exponentially with the number of variables and the degree, this is more of a theoretical algorithm, but it does tell us that our goal is at least possible!</div></section><section class="subsection" id="subsec-hilbert-ideal"><h4 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">3.1.2</span><span class="space"> </span><span class="title">Hilbert Ideal</span>
+</h4>
+<div class="para" id="subsec-hilbert-ideal-2">To describe a more sophisticated approach to the search for minimal algebra generators for an invariant ring, we can actually consider an ideal instead! Note: for  any <span class="process-math">\(\{ f_1,..., f_s\} \subseteq R\text{,}\)</span> the ideal generatd by <span class="process-math">\(\{f_1,...f_s\}\)</span> and the subalgebra generated by  <span class="process-math">\(\{f_1,...f_s\}\)</span> over <span class="process-math">\(\mathbb{K}\)</span> are very different objects.</div>
+<article class="definition definition-like" id="subsec-hilbert-ideal-3"><h5 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.2</span><span class="period">.</span>
+</h5>
+<div class="para" id="subsec-hilbert-ideal-3-1">Let <span class="process-math">\(J_G := R(R^G)_+\)</span> be the ideal in <span class="process-math">\(R\)</span> generated by all positive degree invariants. We call <span class="process-math">\(J_G\)</span> the Hilbert Ideal for this action of <span class="process-math">\(G\text{.}\)</span>
+</div></article><article class="theorem theorem-like" id="subsec-hilbert-ideal-4"><h5 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.1.3</span><span class="period">.</span>
+</h5>
+<div class="para" id="subsec-hilbert-ideal-4-1">Let <span class="process-math">\(J_G \)</span> be the Hilbert ideal in <span class="process-math">\(R\)</span> for the action of <span class="process-math">\(G\text{.}\)</span> If <span class="process-math">\(J_G = (f_1,...,f_s)\)</span> and every <span class="process-math">\(f_i\)</span> is invariant so <span class="process-math">\(f_i\in R^G, \,\, \forall i\text{,}\)</span> then <span class="process-math">\(R^G = \mathbb{K}[f_1,...f_s]\)</span>
+</div></article><div class="para" id="subsec-hilbert-ideal-5">Note that the condition that every generator is invariant is not hard to satisfy as if you have a generator that is not invariant, then you can apply the Reynolds operator <span class="process-math">\(R^G\)</span> to obtain a new generator that is. You can now replace the old generator with this new one and still get the same ideal. What is special here is that a set of ideal generators work as algebra generators! Computationally, algebra generators are much harder to find as there is no guarantee to have finitely many of them. However, the Hilbert Basis Theorem tells us that every ideal is finitely generated.</div></section><section class="subsection" id="subsec-presentations"><h4 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">3.1.3</span><span class="space"> </span><span class="title">Presentations</span>
+</h4>
+<div class="para" id="subsec-presentations-2">When we say that  <span class="process-math">\(\{f_1,...f_s\} \subseteq R\)</span> are minimal generators for a subring <span class="process-math">\(S\text{,}\)</span> we do not exclude the possibility that there is some relation, some polynomial identity, that they satisfy as elements in the bigger ring <span class="process-math">\(R\text{.}\)</span> We can describe the relations between the generators via a <dfn class="terminology">presentation</dfn> of the subring.</div>
+<article class="definition definition-like" id="subsec-presentations-3"><h5 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.4</span><span class="period">.</span>
+</h5>
+<div class="para logical" id="subsec-presentations-3-1">
+<div class="para">Let <span class="process-math">\(S = \mathbb{K}[f_1,...f_s] \subset R\text{.}\)</span> A presentation of <span class="process-math">\(S\)</span> is a map,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+T=: \mathbb{K}[u_1,...u_s] \xrightarrow{\phi}S
+\end{equation*}
+</div>
+<div class="para">such that <span class="process-math">\(\frac{T}{\text{ker}(\phi)} \cong S\text{.}\)</span> We call the elements of the presentation ideal <span class="process-math">\(\text{ker}(\phi)\)</span> the syzygies of <span class="process-math">\(f_i\)</span>’s.</div>
+</div></article><div class="para" id="subsec-presentations-4">Algorithms for finding generators for ideals have been intensely studied and especially in relation with the theory of Groebener bases. We cannot go in the details of these tools, but what is of notice is that they are implemented in Macaulay2 and so we can rely on them in our implementation. In particular, these methods are particularly effective in solving problems in Elimnination Theory.  Often the goal is to compute an ideal of relations hoping that this is less complicated than the original structure, possibly elimnating some variables.</div>
+<article class="proposition theorem-like" id="subsec-presentations-5"><h5 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">3.1.5</span><span class="period">.</span>
+</h5>
+<div class="para logical" id="subsec-presentations-5-1">
+<div class="para">(Elimination Theory): In <span class="process-math">\(S \otimes \mathbb{K}[u_1,...,u_s] = \mathbb{K}[x_1,...,x_n,u_1,...u_s]\)</span> consider the ideal,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+I = (u_i - f_x(\bar x) | \, \left\langle f_i\right\rangle = S
+\end{equation*}
+</div>
+<div class="para">Then,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{ker} (\phi)= I \cap \mathbb{K}[u_1,...,u_s]
+\end{equation*}
+</div>
+</div></article><article class="algorithm theorem-like" id="subsec-presentations-6"><h5 class="heading">
+<span class="type">Algorithm</span><span class="space"> </span><span class="codenumber">3.1.6</span><span class="period">.</span>
+</h5>
+<div class="para" id="subsec-presentations-6-1">Compute a Groebner Basis <span class="process-math">\(G\)</span> for <span class="process-math">\(I\)</span> with elimination order for the <span class="process-math">\(x\)</span>’s. Then, <span class="process-math">\(G \cap \mathbb{K}[y_1,...y_s]\)</span>  is the Groebner Basis for <span class="process-math">\(ker \phi\)</span>
+</div></article></section><section class="subsection" id="subsec-graph-of-linear-actions"><h4 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">3.1.4</span><span class="space"> </span><span class="title">Graph of Linear Actions</span>
+</h4>
+<div class="para" id="subsec-graph-of-linear-actions-2">We can use Elimination Theory to solve our original problem of finding minimal generators for the ring of invariants. We first need to construct a geometric description of the action of a group <span class="process-math">\(G\text{.}\)</span>
+</div>
+<article class="definition definition-like" id="subsec-graph-of-linear-actions-3"><h5 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.7</span><span class="period">.</span>
+</h5>
+<div class="para logical" id="subsec-graph-of-linear-actions-3-1">
+<div class="para">Let <span class="process-math">\(G\)</span> be a finite matrix group in <span class="process-math">\(GL_n(\mathbb{K})\text{.}\)</span> For <span class="process-math">\(A\in G\)</span> consider,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+V_A = \left\{ ( \bar v, A \bar v) \mid ,v \in V \right \} \subseteq V \oplus V 
+\end{equation*}
+</div>
+<div class="para">Then <span class="process-math">\(A_G = \cup_{A\in G}V_A\)</span> is the subspace arrangement associated to the action of G.</div>
+</div></article><div class="para" id="subsec-graph-of-linear-actions-4">Note that <span class="process-math">\(V_A\)</span> is a linear subspace. So <span class="process-math">\(\mathbb{I}(V_A)\text{,}\)</span> the set of polynomials vanishing on <span class="process-math">\(V_A\text{,}\)</span> is an ideal generated by linear polynomials, we call this a <dfn class="terminology">linear ideal</dfn>.</div>
+<details id="subsec-graph-of-linear-actions-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.8</span><span class="period">.</span>
+</h5></summary><article class="example example-like knowl__content"><div class="para logical" id="subsec-graph-of-linear-actions-5-1">
+<div class="para">Consider</div>
+<div class="displaymath process-math">
+\begin{equation*}
+V_{\begin{pmatrix}
+1 \amp 0 \\
+0 \amp -1 \\
+\end{pmatrix}} = \{(x_1,x_2,x_1,-x_2) \mid x_1, x_2 \in V\} = \mathbb{V}(y_1-x_1, y_2+x_2)
+\end{equation*}
+</div>
+</div></article></details></section><section class="subsection" id="subsec-subspace-arrangement-approach"><h4 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">3.1.5</span><span class="space"> </span><span class="title">Subspace Arrangement Approach</span>
+</h4>
+<div class="para" id="subsec-subspace-arrangement-approach-2">The finite union of the subspaces <span class="process-math">\(V_A\text{,}\)</span> denoted <span class="process-math">\(\mathcal{A}\)</span> is a subspace arrangement, called the <dfn class="terminology">group action arrangement</dfn>. Via Elimination Theory, we can use the vanishing ideal of <span class="process-math">\(\mathcal{A}\)</span> to recover the Hilbert Ideal.</div>
+<article class="theorem theorem-like" id="subsec-subspace-arrangement-approach-3"><h5 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.1.9</span><span class="period">.</span>
+</h5>
+<div class="para logical" id="subsec-subspace-arrangement-approach-3-1">
+<div class="para">(Derksen): Let <span class="process-math">\(I_G = \mathbb{I}(A_G) = \cap_{A\in G}\mathbb{I}(V_A) \subseteq \mathbb{K}[x_1,...x_n,y_1,...y_n].\)</span> Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(I_G +(y_1,...,y_n)) \cap \R = J_G.
+\end{equation*}
+</div>
+</div></article><div class="para" id="subsec-subspace-arrangement-approach-4">Recent work has shown that the same approach works in the exterior algebra.</div>
+<div class="para" id="subsec-subspace-arrangement-approach-5"><article class="theorem theorem-like" id="subsec-subspace-arrangement-approach-5-1"><h5 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.1.10</span><span class="period">.</span>
+</h5>
+<div class="para logical" id="subsec-subspace-arrangement-approach-5-1-1">
+<div class="para">(Gandini) Let <span class="process-math">\(I_G^{'} = \cap_{A\in G} \mathbb{I}(V_A) \subseteq \Lambda(\bar x, \bar y)\text{.}\)</span> Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(I_G^{'} +(y_1,...y_n)) \cap \Lambda(x_1,...,x_n) = J_G^{'} : = \Lambda(\bar x)(\Lambda(\bar x)^G)_+
+\end{equation*}
+</div>
+</div></article></div>
+<div class="para" id="subsec-subspace-arrangement-approach-6">The exterior algebra approach has computational potential. Whilst Derken’s approach leads to an algorithm with a long run time, first experiments suggest that a fast algorithm could be implemented for skew polynomials. We aim to pursue this line of inquiry in the near future.</div></section></section><section class="section" id="sec-"><h3 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">3.2</span><span class="space"> </span><span class="title">Specialized algorithms</span>
+</h3>
+<section class="introduction" id="sec--2"><div class="para" id="sec--2-1">For some specific types of actions we have faster and simpler algorithms to find invariants.</div></section><section class="subsection" id="subsec-AGWM"><h4 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">3.2.1</span><span class="space"> </span><span class="title">Abelian Groups and Weight Matrices</span>
+</h4>
+<div class="para logical" id="subsec-AGWM-2">
+<div class="para">Every abelian group <span class="process-math">\(G\)</span> can be written in its invariant factors decomposition as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+G \cong \mathbb{Z}_{d_1} \oplus....\oplus \mathbb{Z}_{d_r}, 
+\end{equation*}
+</div>
+<div class="para">for some unique <span class="process-math">\(d_i\)</span> such that <span class="process-math">\(d_i \mid d_{1+1}\)</span> where <span class="process-math">\(i=1, \ldots , r-1\text{.}\)</span> In multiplicative notation,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+G \cong \left\langle g_1\right\rangle \oplus...\oplus\left\langle g_r \right\rangle, \,\,\,\,\, |g_i| =d_i.
+\end{equation*}
+</div>
+<div class="para">A diagonal action of <span class="process-math">\(G\)</span> on <span class="process-math">\(R= \mathbb{K}[\bar x]\)</span> is given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+g_i \cdot x_j = \mu_i^{w_ij}x_j
+\end{equation*}
+</div>
+<div class="para">for <span class="process-math">\(\mu_i \)</span> a primitive <span class="process-math">\(d_i^{th}\)</span> root of unity. We can encod the action in the weight matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+W = (w_{ij})_{ij} =  
+\begin{pmatrix}
+\mu_{11} \amp \cdots     \amp   \mu_{1n}   \\
+\vdots \amp \ddots \amp      \\
+\mu_{r1}  \amp    \cdots     \amp   \mu_{rn}  
+\end{pmatrix}
+\end{equation*}
+</div>
+<div class="para">where the rows are indexed by the generators <span class="process-math">\(g_i\)</span> of <span class="process-math">\(G\)</span> and the columns are indexed by the variables <span class="process-math">\(x_j\)</span> of <span class="process-math">\(R\text{.}\)</span>
+</div>
+</div>
+<article class="theorem theorem-like" id="subsec-AGWM-3"><h5 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.2.1</span><span class="period">.</span>
+</h5>
+<div class="para logical" id="subsec-AGWM-3-1">
+<div class="para">A monomial is invariant under the action of <span class="process-math">\(G\)</span> if an only if its exponent vector is in the kernel of the weigtht matrix <span class="process-math">\(W \text{.}\)</span> In symbols,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\bar x^{\bar \beta} \in R^G \iff W \bar \beta \cong (0,...,0),
+\end{equation*}
+</div>
+<div class="para">where the entry in position <span class="process-math">\(i\)</span> is computed modulo <span class="process-math">\(d_i\text{.}\)</span>
+</div>
+</div></article><div class="para logical" id="subsec-AGWM-4">
+<div class="para">Interpreting each row has the weight of the action of the generator <span class="process-math">\(g_i\text{,}\)</span> we have that <span class="process-math">\(g_i\)</span> acts trivially on the monomial <span class="process-math">\(\bar x^{\bar \beta}\)</span> precisely when</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mu_i^{\sum_j w_{ij} \beta_j} = 1
+\end{equation*}
+</div>
+<div class="para">so <span class="process-math">\((W \bar \beta)_i =0\)</span> modulo <span class="process-math">\(d_i\)</span> as <span class="process-math">\(\mu_i\)</span> is a primitve <span class="process-math">\(d_i^{th}\)</span> root of unity.</div>
+</div>
+<div class="para" id="subsec-AGWM-5">We can use this result computationally. As the action is diagonal, the invariant ring is generated by monomials. By Noether Degree Bound we only need to examine all monomials of degree less than the order of the group <span class="process-math">\(G\text{.}\)</span> Then, by the theorem above, if we can sort the monomials in terms of their weigtht <span class="process-math">\(W\bar \beta\text{,}\)</span> then the monomials with weight <span class="process-math">\(\bar 0\)</span> will be invariant.</div></section></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="ch-representation-theory.html" title="Previous"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-permutation-actions.html" title="Next"><span class="name">Next</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a xmlns:xlink="http://www.w3.org/1999/xlink" class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a xmlns:xlink="http://www.w3.org/1999/xlink" class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a xmlns:xlink="http://www.w3.org/1999/xlink" class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

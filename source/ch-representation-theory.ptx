@@ -1,10 +1,778 @@
 <?xml version='1.0' encoding='utf-8'?>
 <chapter xml:id="ch-representation-theory">
-    <title>What is a Representation</title>
-    <introduction>
-        <p>
-            hello
-        </p>
-    </introduction>
+    <title>Representation theory</title>
 
+<p>
+</p>
+
+<section>
+    <title>Introduction</title>
+
+    <p>
+        Group theory has become one of the most important aspects in mathematics.
+        Groups are a very hard object to study because sometimes they can be very abstractly described and hard to visualize.
+        Representation Theory allows us to study groups as linear transformations and use linear algebra.
+        This allows us to study groups less abstractly, allowing for us to learn more about groups and apply our group theory knowledge to applications.
+        This method of representing groups as something simpler dates all the way back to Gauss we used the characters of abelian groups.
+        It was expanded and formalized by Frobenius into a subject called Representation Theory.[2] Representation Theory is a power tool that allows us to understand abstract structures like groups, by expressing them in more familiar terms like matrices.
+        Which allows us to use different tools like linear algebra.
+        Linear algebra is a primary tool because it is well understood from a mathematical and geometric sense.
+        Thus when we look at structures in linear algebra we can almost always gain some form of insight into some of the behaviors of that group.
+        With representation theory we can build isomorphisms between some very abstract and not well understood structures such as groups or rings to gain insight.
+        For the purpose of this paper we will define multiple representations.
+        We will define these representations by ”mapping” some structure to its representation.
+        This is given in technical language by
+        <me>
+            \rho: G \mapsto \rho(G) \,\,\,|\,\,\, \rho(g) \mapsto A.
+        </me>
+    </p>
+
+    <p>
+        This paper we will use a linear algebra to represent our structures.
+        In this paper all representations we are examining group actions which will be described more in depth and rigorously later.
+        There are many other prevalent representations of structures.
+        Some of the most fascinating and useful representations are Lie algebras and Lie groups.
+        However, for now we will stick to examining representations in the forms of matrices and later in the paper we will examine one dimensional representations.
+    </p>
+
+    <p>
+        Representation theory allows us to bridge a group theory to application like geometry, physics, and number theory.
+        As a refresher lets define groups and mappings between groups namely, <alert>group homomorphisms</alert>.
+    </p>
+</section>
+
+<section>
+    <title>Intro To Represenations</title>
+
+    A <em>group</em> <m>G</m> is a set together with a binary operation <m>*:G\times G \to G</m>.
+    Where the group axioms below hold:
+    <ol>
+        <li>
+            <p>
+                The binary operation is associative that is <m>g_{1}*(g_{2}*g_{3})=(g_{1}*g_{2})*g_{3}.</m> for all <m>g_{1},g_{2},g_{3} \in G.</m>
+            </p>
+        </li>
+
+        <li>
+            <p>
+                The binary operation is closed that is for all <m>g_{1},g_{2} \in G</m> We have <m>g_{1}*g_{2} \in G.</m>
+            </p>
+        </li>
+
+        <li>
+            <p>
+                there exists an identity element <m>1_{G}</m> such that for all <m>g \in G</m> We have <m>g*1_{G}=1=1_{g}*g.</m>
+            </p>
+        </li>
+
+        <li>
+            <p>
+                There exists inverses.
+                For all <m>g \in G</m> There exists <m>g^{-1}\in G</m> such that <m>g*g^{-1}=1_{G}=g^{-1}*g</m>.
+            </p>
+        </li>
+    </ol>
+
+    <p>
+        There are many unique groups a specific type of group is called an <em>abelian group</em>.
+        We say a group <m>G</m> is abelian if the binary operation on the group is commutative.
+        that is for all <m>g_{1},g_{2}\in G</m> we have <m>g_{1}*g_{2}=g_{2}*g_{1}</m>.
+        Group homomorphism are also very important because that is how we define our representations.
+    </p>
+    Let <m>G_{1},G_{2}</m> be Groups We say a map <m>\alpha:G_{1} \to G_{2}</m> is a group homomorphism if the following conditions are met:
+    <ol>
+        <li>
+            <p>
+                The map <m>\alpha</m> preserves operations.
+                That is for all <m>g_{1},g_{2} \in G1</m> <m>\alpha(g_{1})\alpha(g_{2})=\alpha(g_{2}g_{2}).</m>
+            </p>
+        </li>
+
+        <li>
+            <p>
+                The <m>\alpha</m> preserves the identity.
+                that is <m>\alpha(1_{G_1})=1_{G_2}</m>.
+            </p>
+        </li>
+    </ol>
+    Further if we have a homomorphism that is bijctive call that map an <em>isomorphism</em>.
+    And say that <m>G_{1}</m> and <m>G_{2}</m> are isomorphic notated by <m>G_{1} \cong G_{2}.</m>
+    <p>
+    </p>
+
+
+    <subsection>
+        <title>Group actions</title>
+
+        <p>
+            When we want to represent a group as a transformation we need to describe how groups act on things so we define group actions.
+        </p>
+        A group <em>Action</em> of a group <m>G</m> on a set <m>X</m> is a map <m>\varphi:G\times X\to X</m>, So we are operating a group times a element in a set (we write that as <m>g\cdot x</m>) satisfying
+        <ol>
+            <li>
+                <p>
+                    associativity: <m>g_{1}\cdot(g_{2}\cdot x)=(g_{1}\cdot g_{2})x</m>.
+                </p>
+            </li>
+
+            <li>
+                <p>
+                    identity: <m>1_{G} \cdot x = x</m>.
+                </p>
+            </li>
+        </ol>
+        Also for each <m>g \in G</m> there is a unique map from <m>\sigma_{g}:A \to A.</m> in fact this map is a permutation on when we just look at the action of one element.
+        We can create a map from each element <m>g \in G</m> to each permutation.
+        The Set of all permutations on <m>X</m> is called <m>\text{Sym}(X).</m> this map from <m>G \to \text{Sym}(X)</m> is a homomorphism.
+        <p>
+            The Theorm <alert>Cayley’s Theorem</alert> Is a good connection between groups and this group of permutations on a set <m>X.</m>
+        </p>
+        Cayley’s Theorem: Let <m>G</m> be a group.
+        Then <m>G</m> is isomorphic to a subgroup of <m>\text{Sym}(G).</m>
+        <p>
+        </p>
+
+
+        <proof>
+            <p>
+                Let <m>\lambda: G \to{\rmfamily Sym}(G),</m> where <m>\lambda(g) = \sigma_{g}</m>.
+                Then we can show that for a finite group <m>G</m> there exists a subgroup of <m>{\rmfamily Sym}(G)</m> that is isomorphic to that finite group.
+                Let <m>\sigma_{g}(x)=gx</m>.
+                We show it’s injective beacuse,
+            </p>
+            <me>
+                \begin{align*}\sigma_{g}(x_{1})&#x26;=\sigma_{g}(x_{2})\\ gx_{1}&#x26;=gx_{2}\\ x_{1}&#x26;=x_{2}.\end{align*}
+            </me>
+
+            <p>
+                We know it’s surjective because <m>\forall x \in G</m> we have that <m>\sigma_{g}(g^{-1}x)=x</m>.
+                So we shown that <m>\sigma_{g}</m> is a bijection, so its a valid permutation.
+                We want to show that our map <m>G \to \text{Sym}(G),</m> is a homomorphism.
+                We have
+            </p>
+            <me>
+                \begin{align*}\lambda(a_{1}a_{2})&#x26;=\lambda_{a_{1}a_2}\\&#x26;=a_{1}a_{2}(x)\\&#x26;=\lambda_{a_1}\lambda_{a_2}.\end{align*}
+            </me>
+
+            <p>
+                So our map <m>\lambda</m> is a homomorphism.
+                We can show that the kernel is the identity, If <m>\lambda(a) = 1</m> then <m>ax = x</m> for all x, this is only true if <m>a=1,</m> So the kernel must be the identity.
+                Therefore we can conclude that <m>\lambda</m> is injective.
+                Using the FIT, We have that
+                <me>
+                    \frac{G}{\ker(\lambda)}\cong \text{img}(\lambda)
+                </me>
+                Because <m>\ker(\lambda) = 1</m> We have,
+                <me>
+                    G \cong \text{img}(\lambda)
+                </me>
+                Where <m>\text{img}(\lambda)</m> Will be some subgroup of <m>\text{Sym}(G)</m>.
+                So <m>G</m> is isomorphic to a subgroup of <m>\text{Sym}(G).</m>
+            </p>
+        </proof>
+    </subsection>
+
+
+    <subsection>
+        <title>What is a representation</title>
+
+        <p>
+            In the previous section we discussed how a group can act on a set, allowing the each element to permute the set.
+            What we want is a better way of describing how this concept of a group action works.
+            by using <alert>Representations</alert> we can represent each element as a linear transformation, allowing us to visualize these group actions, and use tools from linear algebra to analyze these group acting on sets.
+            When we represent the group we want to map the group to a group of linear transformations or a group of matrices; we call this group the <alert>general linear group.</alert>
+        </p>
+        The <em>general linear group</em> written as <m>GL_{n}(V)</m> is a group of <m>n \times n</m> matrices over some vector field <m>V.</m>
+        <p>
+            Finally we have all the tools to define a representation
+        </p>
+        Let <m>G</m> be a group a <em>linear representation</em> of G over some <em>representation space</em> <m>V,</m> is a <alert>group homomorphism</alert>,
+        <me>
+            \rho:G\to GL_{n}(V)
+        </me>
+        We also say that the degree of <m>\rho</m> is <m>\dim(V) = n.</m>
+        <p>
+            There exist multiple representations depending on what vector space you space you map them to, and we can sum up these different representations, if we have two representation <m>\rho_{1},\rho_{2}</m> to <m>V_{1},V_{2}</m> respectively we can define
+            <me>
+                \rho_{1}\oplus \rho_{2}: G \to GL(V_{1}\oplus V_{2})
+            </me>
+            The <m>\oplus</m> operator will act the same as a <alert>direct product</alert> when doing finitely many operations.
+        </p>
+        for every vector space <m>V</m> we have a representation for <m>G</m>.
+        <p>
+            Irreducible representations are important in representation theory, as the theorem above describes.
+            We also can define <alert>subrepresentations</alert> of a representation.
+        </p>
+        Let <m>G</m> be a group and <m>V</m> be a vector space such that <m>\rho_{V}:G\to GL(V)</m>.
+        If <m>W</m> is a subspace of <m>V</m> such that for all <m>w \in W, \rho_{V}(g)\cdot w \in W.</m> (also meaning that <m>W</m> is <em>stable</em> under <m>G</m>).
+        Then the homomorphism <m>\rho_{W}:G\to GL(W)</m> is a <em>subrepresentaion</em> (It is to be observed that <m>\rho_{V}(g)\cdot w=\rho_{W}(g)\cdot w</m>).
+        <p>
+            Lastly we have a way to discribe is two representations are the ”same”
+        </p>
+        We say two representations on the same group <m>G</m> namely, <m>\rho_{1}:G\to GL(V_{1})</m> and <m>\rho_{2}: G \to GL(V_{2}).</m> are <em>isomorphic</em> if there exists an isomorphism <m>\phi</m> between the vector spaces that is <m>V_{1} \cong V_{2}.</m> that <m>\phi</m> commutes with the action of <m>G.</m>
+        <me>
+            \phi(\rho_{1}(g)v)=\rho_{2}(g)(\phi(v)).
+        </me>
+    </subsection>
+
+
+    <subsection>
+        <title>Characters</title>
+
+        <p>
+            Characters are an important tool used in describing representations.
+            Characters allow us to describe a element of a representation as a complex number.
+            Recall from linear algebra the trace of a matrix.
+        </p>
+        Let <m>V</m> be a vector space and <m>A</m> be a <m>n\times n</m> matrix that acts as a linear transformation on <m>V.</m> if the matrix has entries indexed by <m>a_{ij}</m> We say that the <em>trace</em> of this matrix denoted by <m>\text{Tr}(A)</m> is
+        <me>
+            \text{Tr}(A) = \sum_{i}^{n}a_{ii}
+        </me>
+        So the trace is the sum along the diagonal of the matrix.
+        <p>
+            Also, this lemma is commonly taught in a linear algebra class
+        </p>
+        Let <m>A</m> be a <m>n\times n</m> matrix with eigen values <m>\lambda_{1}...\lambda_{n}</m> We have that
+        <me>
+            {\rmfamily{Tr}}(A)=\sum_{i}^{n}\lambda_{i}
+        </me>
+
+        <p>
+            We also obtain this Corollary from that Lemma.
+        </p>
+        Under any change of Basis <m>B</m> the trace of the matrix <m>A</m> remains the same.
+        <p>
+            Now using this we have the framework to define what a <em>character</em> of a representation is.
+        </p>
+        Let <m>\rho:G \to GL(V)</m> be a Representaion of <m>G</m> over the vector field <m>V.</m> Let <m>\chi_{\rho}:G\to\mathbb{C}^{*}</m> defined as
+        <me>
+            \chi_{\rho}(g)=\text{Tr}(\rho(g)).
+        </me>
+
+        <p>
+            The character allows us to assign a complex value to each linear representation of each element in a group.
+            This comes with very importent properties.
+        </p>
+        Let <m>\rho:G\to GL(V).</m> be a degree <m>n</m> representation with character <m>\chi_{p}.</m> we have that
+        <ol>
+            <li>
+                <p>
+                    <m>\chi_{\rho}(1_{g})=n</m>
+                </p>
+            </li>
+
+            <li>
+                <p>
+                    <m>\chi_{\rho}(g^{-1})=\overline{\chi_\rho(g)}.</m>
+                </p>
+            </li>
+
+            <li>
+                <p>
+                    <m>\chi_{\rho}(hgh^{-1})=\chi_{\rho}(g)</m>.
+                </p>
+            </li>
+        </ol>
+
+        <p>
+            Also in this paper we refer to <m>\overline z</m> as the <alert>complex conjugate</alert> of <m>z.</m>.
+            We also obtain an interesting property when doing a <alert>direct sum</alert> of a representation defined in the previous section.
+        </p>
+        Let <m>\rho_{1}:G\to GL(V_{1})</m> and let <m>\rho_{2}:G\to GL(V_{2})</m> both be representations of a group <m>G</m> under different vector spaces <m>V_{1}</m> and <m>V_{2}</m> and characters <m>\chi_{1}</m> and <m>\chi_{2}</m> respectively.
+        The character of <m>\rho_{1} \oplus \rho_{2}, \chi_{1+2}</m> the direct sum of the two representations is equal to <m>\chi_{1}+\chi_{2}.</m>
+        <p>
+        </p>
+
+
+        <proof>
+            <p>
+                Let <m>A_{g1}=\rho_{1}(g)</m> and <m>A_{g2}=\rho_{2}(g).</m> We have that the matrix acting on a vector in <m>V_{1}\oplus V_{2}</m> is
+                <me>
+                    A_{g1+g2}=\begin{pmatrix}A_{g1}&#x26;0 \\ 0&#x26;A_{g2}\end{pmatrix}
+                </me>
+                That is because our map will map things in <m>V_{1} \to V_{1}</m> and <m>V_{2} \to V_{2}</m>.
+                So from this we have that
+                <me>
+                    \chi_{1+2}(g)=\text{Tr}(A_{g1+g2})=\text{Tr}(A_{g1})+\text{Tr}(A_{g2})=\chi_{1}(g)+\chi_{2}(g).
+                </me>
+            </p>
+        </proof>
+
+        <p>
+            We can use charicars to figure out if a representation is irriducable or not
+        </p>
+        the <em>inner product</em> of two functions <m>f_{1}</m> and <m>f_{2}</m> on <m>G</m> is defined as
+        <me>
+            \begin{align*}\langle f_{1} \mid f_{2} \rangle&#x26;= \frac{1}{|G|}\sum_{g\in G}\overline{f_1(x)}f_{2}(x).\end{align*}
+        </me>
+        Orthogonality of charactars:
+        <ol>
+            <li>
+                <p>
+                    If <m>V</m> is an irreducible representation, then <m>\langle \chi \mid \chi\rangle = 1.</m>
+                </p>
+            </li>
+
+            <li>
+                <p>
+                    If <m>V</m> and <m>W</m> are not isomorphic representations with charactars <m>\chi_{W}</m> and <m>\chi_{V}</m> respectivly than <m>\langle \chi_{V},\chi_{V} \rangle=0.</m>
+                </p>
+            </li>
+        </ol>
+        Using this we have a method to check for irritability.
+        Characters are very impotent because they assign a single complex value for each transformation, this allows us in some cases to just study the complex values to come to conclusion, And in fact they can tell us all about a representation if we are working with a representation of an abelian group
+    </subsection>
+
+
+    <subsection>
+        <title>Representations of Abelian groups</title>
+
+        <p>
+            When studying group theory, some of the first group we work with are abelian group because they behave the nicest, and when working with representations of those group we will also learn that this is also the case when it comes to representations of abelian groups.
+            In this Paper we will delve further into the idea of representations specifically when a group is abelian groups, and what these nice properties we can obtain when working with abelian groups.
+        </p>
+        Let <m>G</m> be an abelian group and <m>\rho:G\to GL(V)</m> be a representation then all matrices in the in the representation are all diagnosable by the same change of basis.
+        <p>
+        </p>
+
+
+        <proof>
+            <p>
+                Since <m>G</m> is abelian and that <m>\rho</m> is a homomorphism we have that everything in the image of <m>\rho</m> commutes so we have that all matrices commute that implies they share the same eigen vectors so diagonalize-able by the same change of basis.
+            </p>
+        </proof>
+
+        <p>
+            This fact is very important and comes with a lot of consequences from that.
+        </p>
+        If <m>G</m> is an abelian group and <m>\rho:G \to GL(V)</m> is a representation then the character of this representation <m>\chi_{\rho}</m> is a homomorphism
+        <p>
+        </p>
+
+
+        <proof>
+            <p>
+                Let <m>g_{1},g_{2} \in G</m> with representations <m>A_{1},A_{2} \in \im(\rho)</m> So we have that <m>A_{1}</m> and <m>A_{2}</m> commute and are diagonalize by the same change of basis <m>B</m> So we have that <m>BD_{1}B^{-1}=A_{1}</m> and we have that <m>BD_{2}B^{-1}=A_{2}.</m> We also have that <m>\text{Tr}(D_{1}D_{2}) = \text{Tr}(D_{1})\text{Tr}(D_{2})</m> given that <m>D_{1}</m> and <m>D_{2}</m> are diagonal matrices.
+                So we have that
+            </p>
+            <me>
+                \begin{align*}\chi(g_{1})\chi(g_{2})&#x26;=\text{Tr}(A_{1})\text{Tr}(A_{2}) \\&#x26;= \Tr(BD_{1}B^{-1})\Tr(BD_{2}B^{-1}) \\&#x26;=\Tr(D_{1})\Tr(D_{2}) \\&#x26;=\Tr(D_{1}D_{2}) \\&#x26;=\Tr(BD_{1}D_{2}B^{-1}) \\&#x26;=\Tr(A_{1}A_{2}) \\&#x26;=\chi(g_{1}g_{2}).\end{align*}
+            </me>
+
+            <p>
+                So we can see that if <m>G</m> is abelian that our character <m>\chi</m> is a homomorphism.
+                That also comes with som implications too
+            </p>
+            If G is abelian and <m>\rho:G \to GL(V)</m> is a representation with character <m>\chi</m>.
+            We have that
+            <ol>
+                <li>
+                    <p>
+                        <m>\chi</m> is a group
+                    </p>
+                </li>
+
+                <li>
+                    <p>
+                        The trace of any matrix in the representation has a non zero value.
+                    </p>
+                </li>
+            </ol>
+
+            <p>
+                Whats also interesting is that given that <m>\chi</m> is a map <m>G \to \mathbb{C}^{*}</m> because <m>\chi</m> is a homomorpmism we have that <m>\im(\chi)</m> is a subgroup of <m>\mathbb{C}^{*}.</m> If <m>G</m> is finite we have that the subgroup will be finite and will be a group built our of roots of unity.
+            </p>
+        </proof>
+
+        <p>
+            Another relevent lemma is Schur’s lemma
+        </p>
+        Let <m>\rho:G \to GL(V).</m> be an <alert>irreducible representation</alert> of a finite group <m>G.</m> If a matrix <m>A</m> commutes with <m>\rho(g)</m> for all <m>g\in G</m> that is
+        <me>
+            A\rho(g)=\rho(g)A
+        </me>
+        Than <m>A=\lambda I</m> that is <m>A</m> is a scalar multiple of the identity matrix
+        <p>
+            From that lemma we find that decompose an abelian representation into irreducible representations we find something interesting.
+        </p>
+        All irreducible representations of finite abelian groups are one-dimensional.
+        <p>
+            and in fact those representations are <alert>eigen vectors!</alert>
+        </p>
+        An <em>eigen vector</em> <m>v</m> is a vector with a corresponding <em>eigen value</em> <m>\lambda</m> for some matrix <m>A</m> such that <m>Av=\lambda v.</m>
+        <p>
+            For example take some representation <m>\rho:G\to GL(V)</m> we have that every matrix will have the same eigen vectors <m>v_{\lambda}</m>.
+            we can write our vector space as a direct sum of the <alert>eigen spaces</alert>(the subspace defined as the span of an eigen vector) for these eigen vectors.
+            We have that
+            <me>
+                V = \bigoplus_{\lambda} V_{\lambda} \quad V_{\lambda}=\text{span}(v_{\lambda}).
+            </me>
+            If we look at the representation of a single eigen space we learn that each <m>g</m> is represented as a scaler multiple on <m>v</m> that is the eigen value.
+            can we think of another map that maps from <m>G</m> to a number? characters.
+            and actully in this case we have that <m>\chi(g)=\rho(g).</m>! We learned that for any abelian representation we can just break down our representation into multiple characters!
+        </p>
+    </subsection>
+
+
+    <subsection>
+        <title>Applications and further directions</title>
+
+        <p>
+            Representation theory allows a very concrete bridge from group theory to linear algebra an allows us to apply group theory to application such as:
+        </p>
+
+        <ul>
+            <li>
+                <p>
+                    <alert>Fourier Transform</alert> A Foruier Transform is nothing just an efficient change of basis from <m>\{\delta_{g}\}</m> to <m>\{\chi\}</m> for <m>G=C_{n}</m>.
+                </p>
+            </li>
+
+            <li>
+                <p>
+                    <alert>Quantum information.</alert> The single‑qubit Pauli group <m>P\cong C_{2}\times C_{2}</m> has four one‑dimensional irreps; measuring in the Pauli‑<m>Z</m>, <m>X</m>, or <m>Y</m> basis corresponds to selecting a particular character.
+                </p>
+            </li>
+
+            <li>
+                <p>
+                    <alert>Crystallography.</alert> Bravais lattices in <m>\mathbb{R}^{3}</m> with inversion symmetry factor through <m>C_{2}^{3}</m>; their normal‑mode vibrations (phonons) decompose via the eight characters of that group.
+                </p>
+            </li>
+        </ul>
+    </subsection>
+</section>
+
+<section>
+    <title>Further Examples</title>
+
+    <subsection>
+        <title>Representations</title>
+
+        <p>
+            Now, we will be exploring some unique representations and their uses specifically within the context of abelian groups.
+            We will introduce and derive them from examples and additionally prove that every cyclic group, <m>C_{m} = \{g\,|\,g^{m}=1\}</m>, has unique one-dimensional representations of the its group action in the form of,
+            <me>
+                \rho: C_{m} \mapsto \mathbb{C}.
+            </me>
+            We will prove that these representations can be given by the m-th roots of unity which may be intuitive by <m>g^{m} = 1</m>.
+            This will then be generalized to abelian groups.
+            Within this exploration we will examine this through the lens of other areas of algebra such as invariant theory.
+            Now, let us start with an example of representations which we will keep track of throughout the paper with reference to what we are exploring.
+        </p>
+        We are going to be looking at the <m>GL_{n}</m> representations of <m>S_{3}</m>.
+        We can observe that <m>GL_{3}</m> will now permute vector spaces by matrix multiplication.
+        Then we can say that
+        <me>
+            \begin{align*}S_{n}&#x26;= \{(),(1 \,2),(1\,3),(2\,3),(1\,2\,3),(1\,3\,2)\} \\&#x26;\mapsto \{I, \begin{pmatrix}0 &#x26; 1&#x26; 0\\ 1 &#x26; 0&#x26; 0\\ 0 &#x26; 0&#x26; 1\end{pmatrix},\begin{pmatrix}0 &#x26; 0&#x26; 1\\ 0 &#x26; 1&#x26; 0\\ 1 &#x26; 0&#x26; 0\end{pmatrix},\begin{pmatrix}1 &#x26; 0&#x26; 0\\ 0 &#x26; 0&#x26; 1\\ 0 &#x26; 1&#x26; 0\end{pmatrix},\begin{pmatrix}0 &#x26; 1&#x26; 0\\ 0 &#x26; 0&#x26; 1\\ 1 &#x26; 0&#x26; 0\end{pmatrix},\begin{pmatrix}0 &#x26; 0&#x26; 1\\ 1 &#x26; 0&#x26; 0\\ 0 &#x26; 1&#x26; 0\end{pmatrix} \}\\&#x26;= \left\langle \begin{pmatrix}0 &#x26; 1&#x26; 0 \\ 0&#x26;0&#x26;1 \\ 1&#x26;0&#x26;0\end{pmatrix}, \begin{pmatrix}0 &#x26; 1&#x26; 0 \\ 1&#x26;0&#x26;0 \\ 0&#x26;0&#x26;1\end{pmatrix} \right\rangle.\end{align*}
+        </me>
+        Going forward we will examine the abelian cyclic group generated by <m>\langle \rho (1\,2\,3)\rangle = \left\langle \begin{pmatrix}0 &#x26; 1&#x26; 0 \\ 0&#x26;0&#x26;1 \\ 1&#x26;0&#x26;0\end{pmatrix}\right\rangle.</m>
+        <p>
+            Now let us examine some preliminaries that will be necessary for further exploration of the topic.
+        </p>
+        A map acts <alert>faithfully</alert> if it is an injective homomorphism.[4]A stabilizer is the ”kernel” of group actions.
+        We say <m>Stab(x)</m> for the left acting group on an element <m>x_{0} \in X</m> is
+        <me>
+            Stab(x_{0}) = \{gx_{0}=x_{0}|g \in G\}
+        </me>
+        [4]
+        <p>
+        </p>
+        Two vector spaces are orthogonal if their inner product (generalization of a dot product) is 0.[3]
+        <p>
+        </p>
+        Any cycle can be represented by a matrix, of that cycles length <m>n</m>, within <m>GL_{n}</m>.
+        <p>
+        </p>
+
+
+        <proof>
+            <p>
+                Say we have a cycle <m>c</m> of length <m>n</m>, then as a cycle will permute any element to one and only one element uniquely.
+                Thus for <m>c</m> we can give a representation
+                <me>
+                    \rho (c) \mapsto \sigma I.
+                </me>
+                We can permute the identity matrices columns to give a representation of any cycle.
+                This representation will be with <m>GL_{n}</m> by definition.
+                In addition, observe that for <m>\rho</m> we have a homomorphism so the identity maps to the identity.
+            </p>
+        </proof>
+
+        <p>
+            Now we use something called circulant matrices to represent our cyclic groups and these matrices have some special properties.
+        </p>
+        Circulant Matrix: A <m>n\times n</m> matrix where the entries of every next row is the previous row shifted once.
+        <me>
+            C =\begin{pmatrix}a_{1}&#x26;a_{2}&#x26;\cdots&#x26;a_{n}\\ a_{n}&#x26;a_{1}&#x26;&#x26;\vdots \\ \vdots&#x26;&#x26;\ddots\\ a_{2}&#x26;\cdots&#x26;&#x26;a_{1}\end{pmatrix}
+        </me>
+        Additionally this has the property that the first entry of the matrix makes its entire diagonal, this gives that the trace of the matrix is just <m>tr(C) = a_{1}*n</m>.
+        [2]
+        <p>
+            For our permutation matrices there will be a one in every row that is shifted once every row.
+            We will be using this result implicitly for much of this paper.
+        </p>
+        <me>
+            \begin{pmatrix}0 &#x26; 1 &#x26; 0\\ 0&#x26; 0&#x26; 1 \\ 1&#x26; 0&#x26; 0\end{pmatrix}
+        </me>
+        This is the permutation matrix <m>(1 \ 2 \ 3)</m> and can be the generator of a cyclic group.
+        <p>
+            We now introduce new machinery into our representations! Complex numbers, specifically primitive roots, provide very good representations of especially abelian groups.
+            We can start to derive results by examining this next corollary.
+        </p>
+        Every cyclic group has one-dimensional representations.
+        [4]
+        <p>
+        </p>
+
+
+        <proof>
+            <p>
+                We will derive our result through examining cyclic groups.
+                Say we have the cyclic group <m>C_{m} = \{g\,|\,g^{m}=1\}</m> then we will prove that we have a representation of the form
+                <me>
+                    \rho: C_{m} \mapsto \mathbb{C}.
+                </me>
+            </p>
+
+            <p>
+                This is in some ways pretty intuitive by introducing the roots of unity.
+                Observe that if the subgroup is cyclic of prime order then it has a generating element <m>g</m> such that <m>\langle g\rangle = G</m> and <m>rho</m> being a faithful homomorphism implying that its representation group within <m>GL_{n}</m> will also be cyclic generated by <m>\rho (g)</m> such that <m>\langle \rho(g)\rangle = \rho(G)</m>.
+                From this we can examine the eigenvalues and vectors of the generating matrix and these will hold for all elements of the group due to it being cyclically generated.
+                Now we need to prove that these eigenvalues will be roots of unity and the eigenvectors will extend this representation.
+                Say for <m>\rho(g) = A</m> which will imply that for <m>\rho(g^{n}) = A^{n}</m> this means that if we have eigenvectors <m>\vec v</m> and eigenvalues <m>\lambda</m> of this matrix we then have,
+                <me>
+                    A^{n} \vec v = \lambda^{n} \vec v
+                </me>
+                as the eigenvectors remain directionally invariant.
+                Thus we have <m>\rho(g^{n}) = \lambda^{n}</m> and we have a representation <m>\rho: C_{m} \mapsto \mathbb{C}</m> as eigenvalues are complex by nature of <m>\rho</m> being a homomorphism and the identity mapping to the identity
+                <me>
+                    \rho(g)^{m} = \rho(g^{m}) = 1,
+                </me>
+                so then <m>G</m> must be generated by the m-th root of unity as solutions to the characteristic polynomial.
+            </p>
+        </proof>
+
+        <p>
+            Another proof of this lies in this next theorem.
+        </p>
+        <me>
+            \det \left ( \begin{pmatrix}a_{1}&#x26;a_{2}&#x26;\cdots&#x26;a_{n}\\ a_{n}&#x26;a_{1}&#x26;&#x26;\vdots \\ \vdots&#x26;&#x26;\ddots\\ a_{2}&#x26;\cdots&#x26;&#x26;a_{1}\end{pmatrix}\right ) = \displaystyle\prod_{j=0}^{n-1}(a_{1} + \lambda^{j} a_{2} + \cdots+\lambda^{(n-1)j}a_{n})
+        </me>
+        where <m>\lambda \in \mathbb{C}</m> is the <m>nth</m> primitive root of unity [2]
+        <p>
+            The proof of this theorem is solely a calculation of the determinant and will thus be excluded.
+            However, we will use this result to show our above corollary once more.
+        </p>
+
+
+        <proof>
+            <p>
+                Say we have a permutation matrix that generates a cyclic group, then we will have a circulant matrix where in each row there is precisely one entry which is a one.
+                This gives that the determinant will then be a root of unity and by the fact that <m>\rho</m> is homomorphism the representation is injective.
+                Thus we have a one dimensional representation that is unique.
+            </p>
+        </proof>
+        Say
+        <me>
+            G = \left\langle \begin{pmatrix}0 &#x26; 1&#x26; 0 \\ 0&#x26;0&#x26;1 \\ 1&#x26;0&#x26;0\end{pmatrix}\right\rangle
+        </me>.
+        Observe that it is cyclic.
+        Furthermore, we can observe that this representation is interesting in that it permutes the vector space of any three vector <m>\begin{bmatrix}a \\ b \\ c\end{bmatrix}</m>.
+        The eigenvalues of this matrix are given by
+        <me>
+            \det \left( \begin{pmatrix}0 &#x26; 1&#x26; 0 \\ 0&#x26;0&#x26;1 \\ 1&#x26;0&#x26;0\end{pmatrix}- \lambda I \right) = \lambda^{3}-1 = (\lambda -1)(\lambda^{2} + \lambda+1)= 0
+        </me>
+        Thus <m>\lambda = 1, e^{\frac{2\pi}{3}i},e^{\frac{4\pi}{3}i}= \langle e^{\frac{2\pi}{3}i}\rangle</m> and then we have eigenvectors which will remain directionally invariant under the <m>G</m> are,
+        <me>
+            \vec v = \begin{bmatrix}1 \\ 1 \\ 1\end{bmatrix}, \begin{bmatrix}e^{\frac{4\pi}{3}i}\\ e^{\frac{2\pi}{3}i}\\ 1\end{bmatrix},\begin{bmatrix}e^{\frac{2\pi}{3}i}\\ e^{\frac{4\pi}{3}i}\\ 1\end{bmatrix}.
+        </me>
+        These eigenvectors span a one-dimensional vector space under these group actions by their eigenvalues.
+        This means that these eigenvalues are one-dimensional representations of the group for their eigenvectors.
+        <p>
+        </p>
+        Fundamental theorem of abelian groups: Any finite abelian group is a product of cyclic groups of prime order.
+        <p>
+        </p>
+
+
+        <proof>
+            <p>
+                Observe that because we have a finite abelian group <m>g,k \in G</m> implies <m>gk= kg</m> which gives that every subgroup is normal as
+            </p>
+            <me>
+                \begin{align*}gk&#x26;=kg\\ gkg^{-1}&#x26;= gg^{-1}k \\&#x26;= k.\end{align*}
+            </me>
+
+            <p>
+                Thus all of its Sylow P-subgroups <m>P_{i}</m> are normal.
+                This gives that we can write the group as a product of its Sylow P-subgroups,
+                <me>
+                    G = \prod P_{i}
+                </me>
+                Additionally, the order <m>|P_{i}| = p^{k}</m> for some prime <m>p</m>.
+                From here we take that every <m>P_{i}</m> has subgroups and all of these subgroups are normal as <m>G</m> is abelian.
+                This gives that we can represent the group as a product of its subgroups.
+                However, a subgroups order can only ever divide the order of the group by Lagrange’s theorem.
+                Thus all of the subgroups will inductively have minimal proper subgroups of order <m>p</m>.
+                Any group of order <m>p</m> is cyclic.
+                This means that the whole group can be written as a product of its minimal subgroups which are cyclic.
+            </p>
+        </proof>
+
+        <p>
+            This theorem is going to be critical for proving the case of general abelian groups as now we have the ability to see abelian groups through two lenses:
+        </p>
+
+        <ol>
+            <li>
+                <p>
+                    As their product of cyclic groups.
+                </p>
+            </li>
+
+            <li>
+                <p>
+                    As the character of a matrix and eigenvalues and vectors associated with them.
+                </p>
+            </li>
+        </ol>
+
+        <p>
+            Both of these are simply different things on a surface level.
+            Computationally, it is easier to use matrices and eigenvalues.
+            Specifically, the characteristic polynomial is very familiar,
+            <me>
+                p(\lambda) = \det(A - \lambda I)
+            </me>
+            Generally, this gives us some polynomial of indeterminant <m>\lambda</m> that will have solutions in the complex field.
+            However, specifically for permutation matrices we have a correlation where we will generally have eigenvalues of the form <m>1, e^{\frac{2\pi}{n}i},...</m> for n being the degree of the matrix.
+            Similarly, the eigenvectors will have entries of the same form.
+        </p>
+
+        <p>
+            Now, there are a few special things to mention that lead us to the action eigenvalues cause the eigenvectors to be invariant under then forms their stabilizer group.
+            Eigenvectors corresponding to different eigenvalues of a symmetric matrix are orthogonal.
+            Moreover, the eigenvectors span a ”one-dimensional” space which is helpful for simplifying representations.
+            This means that we will have irreducible one dimensional complex representations for any abelian group!
+        </p>
+        Let <m>G</m> be an abelian group and <m>(V,\rho)</m> a representation of <m>G</m> over the complex numbers.
+        If either
+        <ol>
+            <li>
+                <p>
+                    <m>V</m> is a finite basis
+                </p>
+            </li>
+
+            <li>
+                <p>
+                    <m>G</m> is finitely generated
+                </p>
+            </li>
+        </ol>
+        then dim(<m>V</m>)=1
+        <proof>
+            <p>
+                First, lets state all of the preliminaries for this proof
+                <ul>
+                    <li>
+                        <p>
+                            Fundamental theorem of abelian groups: Any finite abelian group is a product of cyclic groups of prime order.
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            Every cyclic group has one-dimensional representations.
+                        </p>
+                    </li>
+                </ul>
+                Thus as we have proven it for the cyclic case and then we can use induction to show that it is true for the products of cyclic groups which by the fundamental theorem of finite abelian groups are all abelian groups.
+                Say we have an abelian group generated by cyclic groups of prime order, <m>C_{p} = \{g\,|\,g^{p}=1\}</m>, then we have,
+                <me>
+                    G = \langle g_{1}\rangle\times \langle g_{2}\rangle\times...\times\langle g_{n}\rangle
+                </me>
+                and define <m>\rho: C_{p} \mapsto \mathbb{C}</m> then for <m>\rho\langle g_{i}\rangle = \mathbb{C}_{i}</m> for <m>1\leq i \leq n</m>.
+                This gives
+                <me>
+                    \rho(G) = \langle \mathbb{C}_{1}\rangle\times \langle \mathbb{C}_{2}\rangle\times...\times\langle \mathbb{C}_{n}\rangle
+                </me>
+                as each of these are roots of unity we know have,
+                <me>
+                    \rho(G) = \langle \mu_{1} \rangle\times \langle \mu_{2}\rangle\times...\times\langle \mu_{n}\rangle
+                </me>
+                for <m>\mu_{i}</m> being distinct roots of unity.
+                Now we know that <m>\mu_{i}\times \mu_{j} = \mu_{k}</m>, thus abelian group representations are made of only roots of unity.
+                Observe for distinct roots of unity of prime order their product will be distinct or <m>e^{\frac{2\pi}{k_{1}}i}*e^{\frac{2\pi}{k_{2}}i}= e^{\frac{2\pi(k_{1}+k_{2})}{k_{1} k_{2}}i}</m> for <m>k_{1},k_{2}</m> being primes, thus as the bottom product is unique, <m>\rho</m> is injective.
+            </p>
+        </proof>
+        Let us examine the abelian permutation group
+        <me>
+            \mathbb{Z}_{2} \times \mathbb{Z}_{2} \cong G = \{e, (1 \, 2)(3 \, 4), (1 \, 3)(2 \, 4), (1 \, 4) (2 \, 3)\}
+        </me>
+        then for <m>\rho_{1}: G \mapsto</m>,
+        <me>
+            \rho(G)= \left\{ I,\begin{pmatrix}0 &#x26; 1&#x26; 0 &#x26;0\\ 1&#x26;0&#x26;0&#x26;0 \\ 0&#x26;0&#x26;0&#x26; 1\\ 0 &#x26;0&#x26;1&#x26;0\end{pmatrix},\begin{pmatrix}0 &#x26; 0&#x26; 1 &#x26;0\\ 0&#x26;0&#x26;0&#x26;1 \\ 1&#x26;0&#x26;0&#x26; 0\\ 0 &#x26;1&#x26;0&#x26;0\end{pmatrix}, \begin{pmatrix}0 &#x26; 0&#x26; 0 &#x26;1\\ 0&#x26;0&#x26;1&#x26;0 \\ 0&#x26;1&#x26;0&#x26; 0\\ 1 &#x26;0&#x26;0&#x26;0\end{pmatrix} \right\}
+        </me>
+        Now all of these permutations are ”swaps” which means that you are only switching two elements with any given permutation.
+        Thus our characteristic polynomial for every element is <m>t^{2} -1</m> which gives for the representation <m>\rho_{2}: \rho_{1}(G) \mapsto \mathbb{C}</m> uses eigenvalues <m>\pm 1</m> and eigenvectors of <m>\begin{bmatrix}1 \\ 1 \\ 1\\ 1\end{bmatrix},\begin{bmatrix}1 \\ -1 \\ 1\\ -1\end{bmatrix},\begin{bmatrix}1 \\ 1 \\ -1\\ -1\end{bmatrix},\begin{bmatrix}-1 \\ 1 \\ 1\\ -1\end{bmatrix}.</m> Thus we have our one dimensional representations!
+        <p>
+        </p>
+        Let us examine the abelian permutation group
+        <me>
+            \mathbb{Z}_{3} \times \mathbb{Z}_{2} \cong G = \{(e, (1\, 3\, 5)(2\, 4\, 6),(1\ 5\ 3)(2\ 6\ 4),(1\ 4)(2\ 5)(3\ 6),(1\ 6\ 5\ 4\ 3\ 2),(1\ 2\ 3\ 4\ 5\ 6)\}.
+        </me>
+        Then for <m>\rho_{1}: G \mapsto</m> we have,
+        <me>
+            \rho(G) = \left\langle \begin{pmatrix}0 &#x26; 0&#x26; 1&#x26; 0 &#x26;0&#x26;0\\ 0 &#x26; 0&#x26; 0 &#x26;1 &#x26;0&#x26;0\\ 0 &#x26; 0&#x26; 0&#x26;0 &#x26;1&#x26;0\\ 0 &#x26;0&#x26;0&#x26;0 &#x26; 0&#x26; 1\\ 1 &#x26;0&#x26;0&#x26;0 &#x26; 0&#x26; 0\\ 0 &#x26;1&#x26;0&#x26;0 &#x26; 0&#x26; 0\end{pmatrix}, \begin{pmatrix}0 &#x26; 0&#x26; 0&#x26; 1 &#x26;0&#x26;0\\ 0&#x26; 0&#x26; 0 &#x26;0 &#x26;1&#x26;0\\ 0 &#x26; 0&#x26; 0&#x26;0 &#x26;0&#x26;1\\ 1 &#x26;0&#x26;0&#x26;0 &#x26; 0&#x26; 0\\ 0 &#x26;1&#x26;0&#x26;0 &#x26; 0&#x26; 0\\ 0 &#x26;0&#x26;1&#x26;0 &#x26; 0&#x26; 0\end{pmatrix}\right\rangle
+        </me>
+        These matrices may be very efficient in some computer algebra systems but for we lose computational ability pretty rapidly with matrices as they get large, which is why finding one-dimensional representations can be very efficient.
+        For this matrix we can look at the characteristic polynomials to find the representations <m>\rho_{2}: \rho_{1}(G) \mapsto \mathbb{C}</m> which gives
+        <me>
+            \rho_{2}\begin{pmatrix}0 &#x26; 0&#x26; 1&#x26; 0 &#x26;0&#x26;0\\ 0 &#x26; 0&#x26; 0 &#x26;1 &#x26;0&#x26;0\\ 0 &#x26; 0&#x26; 0&#x26;0 &#x26;1&#x26;0\\ 0 &#x26;0&#x26;0&#x26;0 &#x26; 0&#x26; 1\\ 1 &#x26;0&#x26;0&#x26;0 &#x26; 0&#x26; 0\\ 0 &#x26;1&#x26;0&#x26;0 &#x26; 0&#x26; 0\end{pmatrix} \mapsto\lambda = \pm 1 \,\,\,\,\,\,\,\,\vec v = \begin{bmatrix}1 \\ 0 \\ 1\\ 0 \\ 1\\ 0\end{bmatrix},\begin{bmatrix}0 \\ 1 \\ 0\\ 1 \\ 0\\ 1\end{bmatrix},\begin{bmatrix}0 \\ e^{\frac{2\pi}{3}i}\\ 0\\ e^{\frac{4\pi}{3}i}\\ 0\\ 1\end{bmatrix},\begin{bmatrix}0 \\ e^{\frac{4\pi}{3}i}\\ 0\\ e^{\frac{2\pi}{3}i}\\ 0\\ 1\end{bmatrix},\begin{bmatrix}e^{\frac{2\pi}{3}i}\\ 0 \\ e^{\frac{4\pi}{3}i}\\ 0 \\ 1\\ 0\end{bmatrix},\begin{bmatrix}e^{\frac{4\pi}{3}i}\\ 0 \\ e^{\frac{2\pi}{3}i}\\ 0 \\ 1\\ 0\end{bmatrix}
+        </me>
+        and
+        <me>
+            \rho_{2}\begin{pmatrix}0 &#x26; 0&#x26; 0&#x26; 1 &#x26;0&#x26;0\\ 0&#x26; 0&#x26; 0 &#x26;0 &#x26;1&#x26;0\\ 0 &#x26; 0&#x26; 0&#x26;0 &#x26;0&#x26;1\\ 1 &#x26;0&#x26;0&#x26;0 &#x26; 0&#x26; 0\\ 0 &#x26;1&#x26;0&#x26;0 &#x26; 0&#x26; 0\\ 0 &#x26;0&#x26;1&#x26;0 &#x26; 0&#x26; 0\end{pmatrix} \mapsto\lambda = \langle e^{\frac{2\pi}{3}i}\rangle\,\,\,\,\,\,\,\, \vec v = \begin{bmatrix}1 \\ 0 \\ 0\\ 1 \\ 0\\ 0\end{bmatrix},\begin{bmatrix}1 \\ 0 \\ 0\\ -1 \\ 0\\ 0\end{bmatrix},\begin{bmatrix}0 \\ 1 \\ 0\\ 0 \\ 1\\ 0\end{bmatrix},\begin{bmatrix}0 \\ -1 \\ 0\\ 0 \\ -1\\ 0\end{bmatrix},\begin{bmatrix}0 \\ 0 \\ 1\\ 0 \\ 0\\ 1\end{bmatrix},\begin{bmatrix}0 \\ 0 \\ 1\\ 0 \\ 0\\ -1\end{bmatrix}
+        </me>
+        These eigenvectors span a one dimensional vector space which allows us to use the eigenvalues as actions.
+        <p>
+            Within this paper we have used a matrix representation of the group action to then use the determinant to calculate eigenvalues and eigenvectors of another representation over a vectors space.
+            We can pretty effectively calculate the eigenvalues of the system by saying the characteristic polynomial of the permutation has roots that are equal to eigenvalues and thus a representation.
+            We run into the issue of how to view the vector space that it acts on.
+            We can make some conclusions by examining the amount of elements being permuted and the disjoint cycles they are in.
+            Then we can transfer this information into the representation of a matrix.
+            From there we can use the eigenvalues to compute the vector space of the representation.
+        </p>
+
+        <p>
+        </p>
+    </subsection>
+</section>
+
+<section>
+    <title>References</title>
+
+    <p>
+        [1] Gandini, F.
+        (2019).
+        Ideals of subspace arrangements (Order No.
+        27614520).
+        .
+        (2352654381).
+        Retrieved from http://tricountycc.idm.oclc.org/login?url=https://www.proquest.com/dissertations-theses/ideals-subspace-arrangements/docview/2352654381/se-2.
+        [2] Conrad, Kieth.
+        n.d.
+        The Origin of Representation Theory.
+        Ohio State University, Columbus: Department of Mathematics.
+        [3] Judson, Thomas.
+        2025.
+        “AATA Finite Abelian Groups.” Ups.edu.
+        http://abstract.ups.edu/aata/struct-section-finite-abelian-groups.html.
+        [4] Gandini, F.
+        (2025).
+        Course Materials for Abstract Algebra II (Galois Theory).
+    </p>
+</section>
 </chapter>
