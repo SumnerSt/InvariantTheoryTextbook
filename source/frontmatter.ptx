@@ -52,4 +52,6 @@
   
     <xi:include href="pr-acknowledgements.ptx" />
 
+    <xi:include href="introduction.ptx" />
+
   </frontmatter>

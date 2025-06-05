@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<preface xml:id="introduction">
+    <title>Introduction</title>
+<p>
+    Invariant Theory is the study of algebreic strucures like <em>group</em> and <em>rings</em> that remain unchanged under some action, namely <term>inveriants</term>.
+    a common algebreic stucure we study is <term>polynomial rings</term>. For example take some trasformation <m>T</m> that swaps <m>x</m> and <m>y</m>.
+    So we have <me>
+        T(p(x,y))=p(y,x).
+    </me>
+    The question invariant theory asks is what polynomials are unchaged by <m>T</m> We can find some simple examples easily such as <md>
+    <mrow> p_1(x,y)\amp=x+y </mrow>
+    <mrow> p_2(x,y)\amp=x^2+xy+y^2</mrow>
+    <mrow> p_3(x,y)\amp=xy</mrow>
+    </md>
+    In fact the set of all these polynomials form a subring! which there special subrings can be hard to compute by hand (thats where our M2 package will come in). There are a lof of questions that arise from these rings
+    these rings have a lot of unique proporties, classifying them is a challenge. 
+</p>
+<p>
+    The study of invarient rings started in the 19th century from algebreists such as Cayley. Who studyed linear transformations and in his paper "On the Theory of Linear Transformations (1845)" who established the first invariant theory. Furthur David hilburts work and his <em>Finiteness Theorm</em> revolutionised invarient theory saying special invarient rings are finitely generated. So if we want to find the ring we must find all the generators. Most studies of invarient theory
+    study linear transformations over rings of polynomials, like we will focus on in this book. To begin studying invarient theory we must take a detour first to <term>Represenation Theory.</term> Which allows us to concretly represent these group actions that act on on our rings as linear transformations.
+</p>
+</preface>

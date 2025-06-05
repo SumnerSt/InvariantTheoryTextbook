@@ -17,9 +17,9 @@
     <title>Invariant Ring Theory in M2</title>
     <subtitle>St. Olaf textbook edition</subtitle>
     <xi:include href="frontmatter.ptx" />
-  
-    <xi:include href="ch-intro-invariant.ptx"/>
+    
     <xi:include href="ch-representation-theory.ptx"/>
+    <xi:include href="ch-intro-invariant.ptx"/>
     <xi:include href="ch-algorithms.ptx"/>
     <xi:include href="ch-permutation-actions.ptx"/>
     <xi:include href="ch-groebner-basis.ptx"/> 
