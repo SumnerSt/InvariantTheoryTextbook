@@ -1,0 +1,14 @@
+INFO    : Found entry no longer exists 9574
+INFO    : Now preparing local server to preview your project directory `/workspaces/InvariantTheoryTextbook`.
+INFO    :   (Reminder: use `pretext deploy` to deploy your built project to a public
+INFO    :   GitHub Pages site that can be shared with readers who cannot access your
+INFO    :   personal computer.)
+INFO    : 
+INFO    : starting server ...
+INFO    : Running in a codespace, so using a subprocess server.
+INFO    : Starting the server
+INFO    : Added server entry e1e93597e5 5740 8129 localhost
+
+INFO    : Server will soon be available at https://cautious-tribble-r4gv646j9x7v2pxvw-8129.app.github.dev
+INFO    : Opening browser for target `web` at https://cautious-tribble-r4gv646j9x7v2pxvw-8129.app.github.dev/output/web
+INFO    : 
