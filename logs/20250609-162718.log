@@ -1,0 +1,13 @@
+INFO    : Staging deployment according to strategy static
+INFO    : Staging `web` at `/workspaces/InvariantTheoryTextbook/output/stage`.
+WARNING : No build for `print` was found in the directory `/workspaces/InvariantTheoryTextbook/output/print`.Try running `pretext build print` to build this component first.
+INFO    : Skipping this target for now.
+WARNING : No build for `latex` was found in the directory `/workspaces/InvariantTheoryTextbook/output/latex`.Try running `pretext build latex` to build this component first.
+INFO    : Skipping this target for now.
+INFO    : Staging custom static site located in `/workspaces/InvariantTheoryTextbook/site` at `/workspaces/InvariantTheoryTextbook/output/stage`.
+INFO    : Deployment is now staged at `/workspaces/InvariantTheoryTextbook/output/stage`.
+INFO    : Preparing to deploy from active `main` git branch.
+
+INFO    : Changes to project source since last commit detected.
+INFO    : Committing these changes to local Git repository.
+

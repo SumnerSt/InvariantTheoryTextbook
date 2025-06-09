@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>A concrete introduction to invariant rings</title>
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="preconnect" href="https://fonts.googleapis.com">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link xmlns:xlink="http://www.w3.org/1999/xlink" href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta xmlns:xlink="http://www.w3.org/1999/xlink" name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="og:type" content="book">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="book:title" content="Invariant Ring Theory in M2">
+<meta xmlns:xlink="http://www.w3.org/1999/xlink" property="book:author" content="Francesca Gandini">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.7.5';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.107bf2d9be20d9c4.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.c7bf407f76a97812.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.5bdeacdba067a0e3.css">
+<script xmlns:xlink="http://www.w3.org/1999/xlink" src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="g4msto.html"><span class="title">Invariant Ring Theory in M2:</span> <span class="subtitle">St. Olaf textbook edition</span></a></h1>
+<p class="byline">Francesca Gandini</p>
+</div></div></header><nav xmlns:xlink="http://www.w3.org/1999/xlink" id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="ch-representation-theory.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="g4msto.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-algorithms.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div xmlns:xlink="http://www.w3.org/1999/xlink" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div xmlns:xlink="http://www.w3.org/1999/xlink" id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="pr-abstract.html" class="internal"><span class="title">Abstract</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="acknowledgements.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="introduction.html" class="internal"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-representation-theory.html" class="internal"><span class="codenumber">1</span> <span class="title">Representation theory</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-representation-theory.html#ch-representation-theory-3" class="internal"><span class="codenumber">1.1</span> <span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch-representation-theory.html#ch-representation-theory-4" class="internal"><span class="codenumber">1.2</span> <span class="title">Intro To Represenations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-representation-theory.html#ch-representation-theory-4-15" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Group actions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-representation-theory.html#ch-representation-theory-4-16" class="internal"><span class="codenumber">1.2.2</span> <span class="title">What is a representation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-representation-theory.html#ch-representation-theory-4-17" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Characters</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-representation-theory.html#ch-representation-theory-4-18" class="internal"><span class="codenumber">1.2.4</span> <span class="title">Representations of Abelian groups</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-representation-theory.html#ch-representation-theory-4-19" class="internal"><span class="codenumber">1.2.5</span> <span class="title">Applications and further directions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch-representation-theory.html#ch-representation-theory-5" class="internal"><span class="codenumber">1.3</span> <span class="title">Further Examples</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-representation-theory.html#ch-representation-theory-5-2" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Representations</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-representation-theory.html#ch-representation-theory-6" class="internal"><span class="codenumber">1.4</span> <span class="title">References</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-intro-invariant.html" class="internal"><span class="codenumber">2</span> <span class="title">A concrete introduction to invariant rings</span></a></div>
+<ul class="structural toc-item-list active"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch-intro-invariant.html#sec-invariantrings" class="internal"><span class="codenumber">2.1</span> <span class="title">A concrete introduction to invariant rings</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-intro-invariant.html#subsec-finite-matrix-groups" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Finite Matrix Groups</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-intro-invariant.html#subsec-invariant-rings" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Invariant Rings</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-intro-invariant.html#subsec-reynolds-operator" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Reynolds Operator</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-algorithms.html" class="internal"><span class="codenumber">3</span> <span class="title">Degree Bounds and Algorithms</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch-algorithms.html#ch-algorithms-2" class="internal"><span class="codenumber">3.1</span> <span class="title"></span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-algorithms.html#subsec-noether-degree-bound" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Noether Degree Bound</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-algorithms.html#subsec-hilbert-ideal" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Hilbert Ideal</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-algorithms.html#subsec-presentations" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Presentations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-algorithms.html#subsec-graph-of-linear-actions" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Graph of Linear Actions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-algorithms.html#subsec-subspace-arrangement-approach" class="internal"><span class="codenumber">3.1.5</span> <span class="title">Subspace Arrangement Approach</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="ch-algorithms.html#sec-" class="internal"><span class="codenumber">3.2</span> <span class="title">Specialized algorithms</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="ch-algorithms.html#subsec-AGWM" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Abelian Groups and Weight Matrices</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-permutation-actions.html" class="internal"><span class="codenumber">4</span> <span class="title">Permutation actions</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-permutation-actions.html#ch-permutation-actions-2" class="internal"><span class="codenumber">4.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-groebner-basis.html" class="internal"><span class="codenumber">5</span> <span class="title">Gröbner Basis</span></a></div></li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-skew-invariants.html" class="internal"><span class="codenumber">6</span> <span class="title">Skew Invariant Theory</span></a></div></li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="ax-related.html" class="internal"><span class="codenumber">A</span> <span class="title">Additional Reading</span></a></div></li>
+<li class="toc-item toc-appendix">
+<div class="toc-title-box"><a href="ax-additional-topics.html" class="internal"><span class="codenumber">B</span> <span class="title">Additional Topics</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ax-additional-topics.html#sec-github-desktop" class="internal"><span class="codenumber">B.1</span> <span class="title">GitHub Desktop</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ax-additional-topics.html#sec-vs-code-application" class="internal"><span class="codenumber">B.2</span> <span class="title">VS Code Application</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ax-additional-topics.html#sec-terminal" class="internal"><span class="codenumber">B.3</span> <span class="title">Using the Terminal</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-appendix"><div class="toc-title-box"><a href="ax-defs-notes.html" class="internal"><span class="codenumber">C</span> <span class="title">Definitions and Notes Quick Ref</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="backmatter-5.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section xmlns:xlink="http://www.w3.org/1999/xlink" class="chapter" id="ch-intro-invariant"><h2 class="heading">
+<span class="type">Chapter</span><span class="space"> </span><span class="codenumber">2</span><span class="space"> </span><span class="title">A concrete introduction to invariant rings</span>
+</h2>
+<section class="introduction" id="ch-intro-invariant-2"><div class="para" id="ch-intro-invariant-2-1">This chapter is co-authored by Francesca Gandini, Al Ashir Intisar, and Sumner Strom. In this chapter we will present an overview of the theory behind the algorithms implemented in the <a class="external" href="https://www.macaulay2.com/doc/Macaulay2/share/doc/Macaulay2/InvariantRing/html/index.html" target="_blank">InvariantRing</a><details class="ptx-footnote" aria-live="polite" id="ch-intro-invariant-2-1-2"><summary class="ptx-footnote__number" title="Footnote 2.0.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="ch-intro-invariant-2-1-2"><code class="code-inline tex2jax_ignore">www.macaulay2.com/doc/Macaulay2/share/doc/Macaulay2/InvariantRing/html/index.html</code></div></details> software package in the open-source Computer Algebra System <a class="external" href="http://www2.macaulay2.com" target="_blank">Macaulay2 (M2)</a><details class="ptx-footnote" aria-live="polite" id="ch-intro-invariant-2-1-4"><summary class="ptx-footnote__number" title="Footnote 2.0.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="ch-intro-invariant-2-1-4"><code class="code-inline tex2jax_ignore">www2.macaulay2.com</code></div></details>.</div>
+<div class="para" id="ch-intro-invariant-2-2">You can access an online version of this chapter with live code cell at <a class="external" href="https://fragandi.github.io/CURITutorialDevelopment2025/" target="_blank"><code class="code-inline tex2jax_ignore">https://fragandi.github.io/CURITutorialDevelopment2025/</code></a>. There you can also learn how to set up a virtual machine on Github with Codespaces so that you write and run M2 code from anywhere. A turn-key repository for creating a Codespace  for Macaulay2 is available at <a class="external" href="https://github.com/fragandi/M2-codespace" target="_blank">fragandi/M2-codespace</a><details class="ptx-footnote" aria-live="polite" id="ch-intro-invariant-2-2-3"><summary class="ptx-footnote__number" title="Footnote 2.0.3"><sup> 3 </sup></summary><div class="ptx-footnote__contents" id="ch-intro-invariant-2-2-3"><code class="code-inline tex2jax_ignore">github.com/fragandi/M2-codespace</code></div></details>.</div>
+<div class="para" id="ch-intro-invariant-2-3">We also include some background on orbit sums necessary to implement an algorithm to compute invariants for permutations actions. We have worked with a group of collaborators on the first version of the code for this algorithm at the Macaulay2 Workshop at Tulane University in April 2025 and plan to further test it and release it with Macaulay2 in Fall 2025.</div>
+<div class="para" id="ch-intro-invariant-2-4">We finish the chapter with a selection of examples that illustrate the current capabilities of the InvariantRing package. You can run the provided code in your local installation of M2 or go to the online version and execute the code cells on your browser. This works  well even on mobile devices!</div></section><section class="section" id="sec-invariantrings"><h3 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">2.1</span><span class="space"> </span><span class="title">A concrete introduction to invariant rings</span>
+</h3>
+<section class="subsection" id="subsec-finite-matrix-groups"><h4 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.1.1</span><span class="space"> </span><span class="title">Finite Matrix Groups</span>
+</h4>
+<div class="para" id="subsec-finite-matrix-groups-2">We can think of a (linear) action within a group as acting on a vector space concretely by interpreting each group element as a matrix and describing the action as matrix multiplication on vectors. We can then evaluate any polynomial on a vector space of its indeterminants and its image after the group action.</div>
+<details id="subsec-finite-matrix-groups-3" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.1</span><span class="period">.</span>
+</h5></summary><article class="example example-like knowl__content"><div class="para logical" id="subsec-finite-matrix-groups-3-1">
+<div class="para">Consider</div>
+<div class="displaymath process-math">
+\begin{equation*}
+M =  \begin{pmatrix}
+1 \amp 0 \\
+0 \amp -1 \\
+\end{pmatrix} 
+\end{equation*}
+</div>
+<div class="para">and the vector <span class="process-math">\(\bar x = \begin{pmatrix} x\\ y\\ \end{pmatrix}\)</span> This gives <span class="process-math">\(M \bar x = \begin{pmatrix}
+x \\
+-y  \\
+\end{pmatrix}\text{.}\)</span> Thus for the polynomial</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(\bar x) = f(\begin{pmatrix}
+x \\
+y  \\
+\end{pmatrix}) = x+y
+\end{equation*}
+</div>
+<div class="para">and we have,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(M\bar x) = f(\begin{pmatrix}
+x \\
+-y  \\
+\end{pmatrix})= x-y\text{.}
+\end{equation*}
+</div>
+</div></article></details><div class="para" id="subsec-finite-matrix-groups-4">More formally, for <span class="process-math">\(G \)</span> a finite group we will consider a linear representation of <span class="process-math">\(G \)</span> via its action on a finite dimensional vector space <span class="process-math">\(V \)</span> over a field <span class="process-math">\(K \)</span> of characteristics zero. In general, most of the results in this chapter hold in the non-modular case i.e., when the characteristics of the field does not divide the order of the group. As of now finite fields are not fully supported by the current version of the InvariantRing package and such functionalities are an active area of development.</div>
+<div class="para" id="subsec-finite-matrix-groups-5">If <span class="process-math">\(V \)</span> is faithful representation of <span class="process-math">\(G \)</span> of dimension <span class="process-math">\(m\text{,}\)</span> the image of the representation is isomorphic to <span class="process-math">\(G \)</span> and so we consider <span class="process-math">\(G \)</span> as a finite <dfn class="terminology">matrix group</dfn>.</div>
+<article class="definition definition-like" id="subsec-finite-matrix-groups-6"><h5 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.2</span><span class="period">.</span>
+</h5>
+<div class="para" id="subsec-finite-matrix-groups-6-1">Suppose <span class="process-math">\(|G| &lt; \infty\)</span> and <span class="process-math">\(G \leq GL_m(\mathbb{K})\text{,}\)</span>  then <span class="process-math">\(G\)</span> is a <em class="emphasis">finite matrix group.</em>
+</div></article><details id="subsec-finite-matrix-groups-7" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.3</span><span class="period">.</span>
+</h5></summary><article class="example example-like knowl__content"><div class="para logical" id="subsec-finite-matrix-groups-7-1">
+<div class="para">Let us consider a two-dimesional representation of <span class="process-math">\(C_2\text{,}\)</span> the cyclic group of order 2.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left\langle \begin{pmatrix}
+1 \amp 0 \\
+0 \amp -1 \\
+\end{pmatrix} \right\rangle = \left\{ \begin{pmatrix}
+1 \amp 0 \\
+0 \amp -1 \\
+\end{pmatrix},\begin{pmatrix}
+1 \amp 0 \\
+0 \amp 1 \\
+\end{pmatrix} \right \} \cong C_2
+\end{equation*}
+</div>
+</div></article></details></section><section class="subsection" id="subsec-invariant-rings"><h4 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.1.2</span><span class="space"> </span><span class="title">Invariant Rings</span>
+</h4>
+<div class="para" id="subsec-invariant-rings-2">We will work with a polynomial ring in <span class="process-math">\(n\)</span> variables over the field <span class="process-math">\(\mathbb{K}\text{.}\)</span> We use the notation <span class="process-math">\(\bar x = (x_1, x_2,..., x_n)\)</span> and abuse it by saying <span class="process-math">\(\mathbb{K}[x_1,x_2,...,x_n]=\mathbb{K}[\bar x]\)</span> and <span class="process-math">\(f(x_1,x_2,...,x_n)=f(\bar x)\)</span> for <span class="process-math">\(f \in \mathbb{K}[\bar x]\text{.}\)</span>
+</div>
+<article class="definition definition-like" id="subsec-invariant-rings-3"><h5 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.4</span><span class="period">.</span>
+</h5>
+<div class="para logical" id="subsec-invariant-rings-3-1">
+<div class="para">Let <span class="process-math">\(G\)</span> be a finite matrix group within <span class="process-math">\(GL_n(\mathbb{K})\text{.}\)</span> We say that <span class="process-math">\(f\in \mathbb{K}[\bar x]\)</span> is invariant under the action of <span class="process-math">\(G\)</span> if and only if</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(A\bar x) = f(\bar x),
+\end{equation*}
+</div>
+<div class="para">for all <span class="process-math">\(A \in G\text{.}\)</span>
+</div>
+</div></article><details id="subsec-invariant-rings-4" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.5</span><span class="period">.</span>
+</h5></summary><article class="example example-like knowl__content"><div class="para logical" id="subsec-invariant-rings-4-1">
+<div class="para">The polynomials <span class="process-math">\(f(\bar x)=x\)</span> and <span class="process-math">\(f(\bar x) = x +y^2\)</span> in <span class="process-math">\(\mathbb{K}[x,y]\)</span> are invariant under the action of</div>
+<div class="displaymath process-math">
+\begin{equation*}
+C_2 = \left\langle\begin{pmatrix}
+1 \amp 0 \\
+0 \amp -1 \\
+\end{pmatrix} \right\rangle
+\end{equation*}
+</div>
+<div class="para">However the polynoial <span class="process-math">\(f(\bar x)=x+y\)</span> is not.</div>
+</div></article></details><div class="para" id="subsec-invariant-rings-5">We can consider the set of all invariant polynomials under some action of a group <span class="process-math">\(G \text{.}\)</span> A good exercise is to prove that this set has the structure of a ring.</div>
+<article class="definition definition-like" id="subsec-invariant-rings-6"><h5 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.6</span><span class="period">.</span>
+</h5>
+<div class="para logical" id="subsec-invariant-rings-6-1">
+<div class="para">Let <span class="process-math">\(R= \mathbb{K}[\bar x]\text{.}\)</span> We define the <em class="emphasis">invariant ring</em> for the action of <span class="process-math">\(G\)</span> on <span class="process-math">\(R\)</span> as,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+R^G : =  \{f \in R \, | f(A\bar x) = f(\bar x), \, \forall A \in G\} \subseteq R.
+\end{equation*}
+</div>
+</div></article></section><section class="subsection" id="subsec-reynolds-operator"><h4 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.1.3</span><span class="space"> </span><span class="title">Reynolds Operator</span>
+</h4>
+<div class="para" id="subsec-reynolds-operator-2">We have that the invariant ring <span class="process-math">\(R^G\)</span> is a subring of the ring <span class="process-math">\(R= \mathbb{K}[\bar x]\text{.}\)</span> However, it is not an ordinary subring. In characteristic zero, we have a <dfn class="terminology">projection</dfn> from <span class="process-math">\(R\)</span> to <span class="process-math">\(R^G\)</span> that respects the action of <span class="process-math">\(G\text{.}\)</span> The idea: "averaging" over the action of <span class="process-math">\(G\)</span> we get an invariant polynomial.</div>
+<article class="definition definition-like" id="subsec-reynolds-operator-3"><h5 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.1.7</span><span class="period">.</span>
+</h5>
+<div class="para logical" id="subsec-reynolds-operator-3-1">
+<div class="para">The <em class="emphasis">Reynolds map</em> (averaging map) <span class="process-math">\(R_G: R \xrightarrow{} R^G\)</span> is given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+R_G(f) = \frac{1}{|G|} \sum_{A\in G} f(A \bar x) 
+\end{equation*}
+</div>
+</div></article><details id="subsec-reynolds-operator-4" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h5 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.8</span><span class="period">.</span>
+</h5></summary><article class="example example-like knowl__content"><div class="para logical" id="subsec-reynolds-operator-4-1">
+<div class="para">Example for a Group action <span class="process-math">\(C_2 = \left\langle\begin{pmatrix}
+1 \amp 0 \\
+0 \amp -1 \\
+\end{pmatrix}\right\rangle\text{.}\)</span> Consider the polynomial <span class="process-math">\(x+y\text{,}\)</span> which is not invariant under the action of <span class="process-math">\(C_2\text{.}\)</span> We have that:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+R_G(x+y) = \frac{1}{2} ((x+y) + (x-y)) = x\in R^G
+\end{equation*}
+</div>
+<div class="para">and we can check that <span class="process-math">\(R_G(x+y)=x\)</span> is indeed invariant.</div>
+</div></article></details></section></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="ch-representation-theory.html" title="Previous"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-algorithms.html" title="Next"><span class="name">Next</span><span xmlns:xlink="http://www.w3.org/1999/xlink" class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a xmlns:xlink="http://www.w3.org/1999/xlink" class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a xmlns:xlink="http://www.w3.org/1999/xlink" class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a xmlns:xlink="http://www.w3.org/1999/xlink" class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
