@@ -1,0 +1,18 @@
+# Guys we need a gitignore so we don't track useless files.
+
+# First we need to make sure to track this file:
+!.gitignore
+
+# But now we need to worry about the files that we ignore.
+
+# We don't care about any log files so let's first remove those.
+# --- LOGS ---
+logs
+.error_schema.log
+*.log
+
+# --- OUTPUTS
+output
+.vscode
+GenerateAssetsHelp.md
+
