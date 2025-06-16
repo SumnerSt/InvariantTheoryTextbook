@@ -23,7 +23,7 @@
         <mrow> p_2(x,y)\amp=x^2+xy+y^2</mrow>
         <mrow> p_3(x,y)\amp=xy.</mrow>
     </md>
-    Interestingly, if we were to take the set of <em>all</em> invariant polynomials under <m>T</m>, this set would form a subring! Many of these invariant subrings have special properties, but are quite difficult to compute by hand. Here is where <term>Computer Algebra Systems (CAS)</term> like Macaulay 2 (M2) aid in computing these invariants and studying hem in greater depth. 
+    Interestingly, if we were to take the set of <em>all</em> invariant polynomials under <m>T</m>, this set would form a subring! Many of these invariant subrings have special properties, but are quite difficult to compute by hand. Here is where <term>Computer Algebra Systems (CAS)</term> like Macaulay 2 (M2) aid in computing these invariants and studying them in greater depth. 
 
 </p>
 <p>
