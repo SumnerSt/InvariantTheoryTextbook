@@ -3,21 +3,31 @@
 <preface xml:id="introduction">
     <title>Introduction</title>
 <p>
-    Invariant Theory is the study of algebreic strucures like <em>group</em> and <em>rings</em> that remain unchanged under some action, namely <term>inveriants</term>.
-    a common algebreic stucure we study is <term>polynomial rings</term>. For example take some trasformation <m>T</m> that swaps <m>x</m> and <m>y</m>.
-    So we have <me>
-        T(p(x,y))=p(y,x).
-    </me>
-    The question invariant theory asks is what polynomials are unchaged by <m>T</m> We can find some simple examples easily such as <md>
-    <mrow> p_1(x,y)\amp=x+y </mrow>
-    <mrow> p_2(x,y)\amp=x^2+xy+y^2</mrow>
-    <mrow> p_3(x,y)\amp=xy</mrow>
-    </md>
-    In fact the set of all these polynomials form a subring! which there special subrings can be hard to compute by hand (thats where our M2 package will come in). There are a lof of questions that arise from these rings
-    these rings have a lot of unique proporties, classifying them is a challenge. 
+    Invariant Theory is the study of algebraic strucures such as <em>group</em> and <em>rings</em> that remain unchanged under some action, namely <term>invariants</term>. 
 </p>
 <p>
-    The study of invarient rings started in the 19th century from algebreists such as Cayley. Who studyed linear transformations and in his paper "On the Theory of Linear Transformations (1845)" who established the first invariant theory. Furthur David hilburts work and his <em>Finiteness Theorm</em> revolutionised invarient theory saying special invarient rings are finitely generated. So if we want to find the ring we must find all the generators. Most studies of invarient theory
-    study linear transformations over rings of polynomials, like we will focus on in this book. To begin studying invarient theory we must take a detour first to <term>Represenation Theory.</term> Which allows us to concretly represent these group actions that act on on our rings as linear transformations.
+    Take, for example, a group <m>G</m> and a ring <m>R</m>. An element <m>r\in R</m> is considered <term>invariant</term> if for all <m>g\in G</m>, we have that: 
+    <me>
+        g\cdot r = r.
+    </me>
+    In this case, we say that <m>r</m> is invariant under the <term>group action</term> of <m>G</m>. 
+</p>
+<p>
+    <term>Polynomial rings</term>, where elements of the ring are comprised of polynomials, can be a useful avenue to explore the behavior of invariants. For example, take some trasformation <m>T</m> that swaps the <m>x</m> and <m>y</m> terms in a polynomial such that:
+    <me>
+        T(p(x,y))=p(y,x).
+    </me>
+    Invariant theory is concerned with <em>which polynomials remain invariant under this transformation <m>T</m>?</em> Immediately, some invariant polynomials may come to mind, such as:
+    <md>
+        <mrow> p_1(x,y)\amp=x+y </mrow>
+        <mrow> p_2(x,y)\amp=x^2+xy+y^2</mrow>
+        <mrow> p_3(x,y)\amp=xy.</mrow>
+    </md>
+    Interestingly, if we were to take the set of <em>all</em> invariant polynomials under <m>T</m>, this set would form a subring! Many of these invariant subrings have special properties, but are quite difficult to compute by hand. Here is where <term>Computer Algebra Systems (CAS)</term> like Macaulay 2 (M2) aid in computing these invariants and studying hem in greater depth. 
+
+</p>
+<p>
+    The study of invariant rings originated in the 19th century with algebraists such as Cayley, who studied linear transformations and in his paper "<em>On the Theory of Linear Transformations </em>" (1845) who established the first invariant theory. Furthuring Caley's work, David Hilbert's work on his <em>Finiteness Theorm</em> revolutionized invariant theory, proving that special invariant rings are finitely generated. This gives us a computational method to represent ideals as the result of a finite number of generators. Most studies of invarient theory
+    study linear transformations over rings of polynomials, like we will focus on in this book. To begin studying invariant theory we must take a detour first to <term>Represenation Theory,</term> which allows us to concretely represent these group actions that act on on our rings as linear transformations.
 </p>
 </preface>

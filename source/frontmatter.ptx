@@ -9,31 +9,9 @@
       <credit>
         <title>Contributing Authors</title>
         <author>
-          <personname>Sasha Arasha</personname>
-            <department>MSCS</department>
+          <personname>Sasha Arasha, Marcus Cassel, Al Ashir Intisar, Gordon Novak, Sumner Strom</personname>
+            <department>Department of Mathematics, Statistics, and Computer Sciences</department>
             <institution>St. Olaf College</institution>
-        </author>
-        <author>
-          <personname>Marcus Cassell</personname>
-            <department>MSCS</department>
-            <institution>St. Olaf College</institution>
-        </author>
-        <author>
-          <personname>Al Ashir Intisar</personname>
-            <department>MSCS</department>
-            <institution>St. Olaf College</institution>
-        </author>
-
-        <author>
-          <personname>Gordon Novak</personname>
-          <department>MSCS</department>
-          <institution>St. Olaf College</institution>
-        </author>
-        
-        <author>
-          <personname>Sumner Strom</personname>
-          <department>MSCS</department>
-          <institution>St. Olaf College</institution>
         </author>
       </credit>
       <date>
@@ -44,7 +22,7 @@
     <preface xml:id="pr-abstract">
       <title>Abstract</title>
       <p>
-        This is an introductory textbook into invariants with a special focus on the InvariantRings Package in Macaulay 2.
+        This text provides an introduction to the theory of invariant rings, with an emphasis on foundational concepts, such as Gröbner Bases, and common computational techniques. Special focus is given to practical applications using the <url href="https://macaulay2.com/doc/Macaulay2/share/doc/Macaulay2/InvariantRing/html/index.html">InvariantRings Package</url> in Macaulay2, providing a hands-on approach to exploring computational invariant theory. 
       </p>
     </preface>
 

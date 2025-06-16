@@ -15,7 +15,7 @@
 
   <book xml:id="g4msto">
     <title>Invariant Ring Theory in M2</title>
-    <subtitle>St. Olaf textbook edition</subtitle>
+    <subtitle>St. Olaf Textbook Edition</subtitle>
     <xi:include href="frontmatter.ptx" />
     <xi:include href="introduction.ptx" />
     <xi:include href="ch-representation-theory.ptx"/>
