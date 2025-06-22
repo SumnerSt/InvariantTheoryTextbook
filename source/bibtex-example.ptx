@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<preface xml:id="bibtex-example">
+    <title>BibTeX Example</title>
+    <p>
+        Let's say that I want to cite something.
+    </p>
+    <p>
+        In our <c>main.ptx</c>, I've linked all of our references in the Zotero. You can find them in the <c>references.bib</c> file in the root folder of our repository.
+    </p>
+    <p>
+        If I then want to go and cite something, I say:
+        <cd>
+            &lt;cite key="sturmfels_algorithms_2008"&gt;citation&lt;/cite&gt;
+        </cd>
+        This will result in a <citation key="sturmfels_algorithms_2008"> citation </citation>
+        
+    </p>
+
+    
+    
+    
+
+</preface>
