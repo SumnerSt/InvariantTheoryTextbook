@@ -21,14 +21,10 @@
     <xi:include href="ch-representation-theory.ptx"/>
     <xi:include href="ch-intro-invariant.ptx"/>
     <xi:include href="ch-algorithms.ptx"/>
-    <bibiography>
-	<bibtex source="../references.bib"/>
-    </bibiography>
     <xi:include href="ch-permutation-actions.ptx"/>
     <xi:include href="ch-groebner-basis.ptx"/> 
     <xi:include href="ch-skew-invariants.ptx"/> 
-    
-
+    <xi:include href="bibtex-example.ptx"/> 
 
     <backmatter xml:id="backmatter">
       <title>Backmatter</title>

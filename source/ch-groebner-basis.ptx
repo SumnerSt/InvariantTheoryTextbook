@@ -3,7 +3,62 @@
     <title>Gröbner Basis</title>
     <introduction>
         <p>
-            hello
+            
+            If we wish to divide the single-variable polynomial <m>f(x) \in \mathbb R[x]</m> by another polynomial of smaller order <m>g(x)\in\mathbb R[x]</m>, we are looking for two new polynomials, <m>q, r</m> such that:
+            <md>
+                <mrow> f(x)\amp = q\cdot g(x) + r, </mrow>
+            </md>
+            where <m>q</m> is termed the <term>quotient</term> and <m>r</m> the <term>remainder</term>. To find such a <m>q\text{ and } r</m>, we follow a methodology called the <term>division algorithm</term>.
         </p>
     </introduction>
+    <section xml:id="sec-division-algorithm">
+        <title>The Division Algorithm</title>
+        <p>
+            The division algorithm is comprised of four steps for the above specific <m>f(x)\text{ and }g(x)</m>:
+            <ol>
+                <li>
+                    <p>
+                        Divide the leading term of <m>f(x),\;\textbf{LT}(f(x))</m> by the leading term of <m>g(x),\;\textbf{LT}(g(x))</m>. Add this to the quotient <m>q</m>.
+                    </p>
+                    <p>
+                        <em>Here, we denote the <term>leading term</term> as the part of the polynomial with highest degree. For example, <m>\textbf{LT}(x^2+3x+2)=x^2</m>.</em>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Multiply the divisor, <m>g(x)</m>, by the result from Step 1. 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Now, repeat the entire process with <m>f(x):=f(x) - \frac{\textbf{LT}(f(x))}{\textbf{LT}(g(x))}\cdot g(x)</m> until the degree of <m>f(x)</m> is less than the degree of <m>g(x)</m>. 
+                    </p>
+                    <p>
+                        The final <m>f(x)</m> is our remainder, <m>r</m>. 
+                    </p>
+                </li>
+            </ol>
+            This process can be repeated for any polynomial, not only in <m>\mathbb R[x]</m>, but for any field <m>\mathbb K[x]</m>. However, given two polynomials, <m>g(x), k(x)</m>, can we ensure that the order of division does not matter? Is is associative?
+        </p>
+        <p>
+            We know that this is the case in <m>\mathbb R</m>. Consider <m>a,b,c\in \mathbb R</m>. We know that:
+            <md>
+                <mrow>\frac{\frac{a}{b}}{c} \amp = \frac{\frac{a}c}b. </mrow>
+            </md>
+            This same property <em>also holds</em> also in <m>\mathbb K[x]</m>. However, this property <em>only</em> holds in the single-variable case. For <m>\mathbb K[x,y]</m>. Consider <m>f(x)=xy + 1,</m> <m>g(x)=xy,</m> and <m>k(x)=y+1</m>. Via the division algorithm, we get that:
+            <md>
+                <mrow>\frac{\frac{f(x)}{g(x)}}{k(x)} \amp = 1 \cdot g(x) + 1 </mrow>
+                <mrow> \frac{\frac{f(x)}{k(x)}}{g(x)}\amp = x\cdot k(x) - (x+1)</mrow>
+            </md>
+            With the same algorithm, we got two different remainders that are not divisible by the remaining polynomial. This may lead one to believe that consistent division of multivariable polynomails is simply <em>impossible</em>, but that is far from the case. Mathematicians far more intelligent that the authors of this textbook have devised methods to resolve this mathematical snail crevice. 
+        </p>
+    </section>
+    <section xml:id="sec-term-ordering">
+        <title>Term Ordering</title>
+        <p>
+            
+        </p>
+
+    </section>
+
 </chapter>

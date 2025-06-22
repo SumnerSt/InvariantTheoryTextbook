@@ -11,9 +11,9 @@
     <p>
         If I then want to go and cite something, I say:
         <cd>
-            &lt;cite key="sturmfels_algorithms_2008"&gt;citation&lt;/cite&gt;
+            &lt;biblio src = "???"&gt;citation&lt;/biblio&gt;
         </cd>
-        This will result in a <citation key="sturmfels_algorithms_2008"> citation </citation>
+        This will result in a citation. 
         
     </p>
 
