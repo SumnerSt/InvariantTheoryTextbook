@@ -7,7 +7,7 @@
             If we wish to divide the single-variable polynomial <m>f(x) \in \mathbb R[x]</m> by another polynomial of smaller order <m>g(x)\in\mathbb R[x]</m>, we are looking for two new polynomials, <m>q, r</m> such that:
             <md>
                 <mrow> f(x)\amp = q\cdot g(x) + r, </mrow>
-            </md>
+            </md>   
             where <m>q</m> is termed the <term>quotient</term> and <m>r</m> the <term>remainder</term>. To find such a <m>q\text{ and } r</m>, we follow a methodology called the <term>division algorithm</term>.
         </p>
     </introduction>
