@@ -511,7 +511,25 @@ var ptx_lunr_docs = [
   "type": "Chapter",
   "number": "5",
   "title": "Gröbner Basis",
-  "body": " Gröbner Basis   hello   "
+  "body": " Gröbner Basis   If we wish to divide the single-variable polynomial by another polynomial of smaller order , we are looking for two new polynomials, such that: where is termed the quotient and the remainder . To find such a , we follow a methodology called the division algorithm .    The Division Algorithm  The division algorithm is comprised of four steps for the above specific :   Divide the leading term of by the leading term of . Add this to the quotient .   Here, we denote the leading term as the part of the polynomial with highest degree. For example, .     Multiply the divisor, , by the result from Step 1.    Now, repeat the entire process with until the degree of is less than the degree of .  The final is our remainder, .   This process can be repeated for any polynomial, not only in , but for any field . However, given two polynomials, , can we ensure that the order of division does not matter? Is is associative?  We know that this is the case in . Consider . We know that: This same property also holds also in . However, this property only holds in the single-variable case. For . Consider  and . Via the division algorithm, we get that: With the same algorithm, we got two different remainders that are not divisible by the remaining polynomial. This may lead one to believe that consistent division of multivariable polynomails is simply impossible , but that is far from the case. Mathematicians far more intelligent than the authors of this textbook have devised methods to resolve this mathematical snail crevice.    Term Ordering     "
+},
+{
+  "id": "ch-groebner-basis-2-1",
+  "level": "2",
+  "url": "ch-groebner-basis.html#ch-groebner-basis-2-1",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "quotient remainder division algorithm "
+},
+{
+  "id": "sec-division-algorithm-2",
+  "level": "2",
+  "url": "ch-groebner-basis.html#sec-division-algorithm-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "leading term "
 },
 {
   "id": "ch-skew-invariants",
@@ -521,6 +539,15 @@ var ptx_lunr_docs = [
   "number": "6",
   "title": "Skew Invariant Theory",
   "body": " Skew Invariant Theory    "
+},
+{
+  "id": "bibtex-example",
+  "level": "1",
+  "url": "bibtex-example.html",
+  "type": "Preface",
+  "number": "",
+  "title": "BibTeX Example",
+  "body": " BibTeX Example  Let's say that I want to cite something.  In our main.ptx , I've linked all of our references in the Zotero. You can find them in the references.bib file in the root folder of our repository.  If I then want to go and cite something, I say: <biblio src = \"???\">citation<\/biblio> This will result in a citation.  "
 },
 {
   "id": "ax-related",

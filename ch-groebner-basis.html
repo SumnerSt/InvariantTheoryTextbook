@@ -102,14 +102,14 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.8.0';
+eBookConfig.runestone_version = '7.8.3';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.107bf2d9be20d9c4.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.c7bf407f76a97812.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.8e4157bd77a28b29.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.2e7f40e86ae7d163.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.5bdeacdba067a0e3.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
@@ -204,8 +204,15 @@ eBookConfig.enable_chatcodes =  false;
 <div class="toc-title-box"><a href="ch-permutation-actions.html" class="internal"><span class="codenumber">4</span> <span class="title">Permutation actions</span></a></div>
 <ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-permutation-actions.html#ch-permutation-actions-2" class="internal"><span class="codenumber">4.1</span> <span class="title"></span></a></div></li></ul>
 </li>
-<li class="toc-item toc-chapter active"><div class="toc-title-box"><a href="ch-groebner-basis.html" class="internal"><span class="codenumber">5</span> <span class="title">Gröbner Basis</span></a></div></li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-groebner-basis.html" class="internal"><span class="codenumber">5</span> <span class="title">Gröbner Basis</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-groebner-basis.html#sec-division-algorithm" class="internal"><span class="codenumber">5.1</span> <span class="title">The Division Algorithm</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-groebner-basis.html#sec-term-ordering" class="internal"><span class="codenumber">5.2</span> <span class="title">Term Ordering</span></a></div></li>
+</ul>
+</li>
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-skew-invariants.html" class="internal"><span class="codenumber">6</span> <span class="title">Skew Invariant Theory</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="bibtex-example.html" class="internal"><span class="title">BibTeX Example</span></a></div></li>
 <li class="toc-item toc-backmatter">
 <div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
 <ul class="structural toc-item-list">
@@ -226,7 +233,55 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="ch-groebner-basis"><h2 class="heading">
 <span class="type">Chapter</span><span class="space"> </span><span class="codenumber">5</span><span class="space"> </span><span class="title">Gröbner Basis</span>
 </h2>
-<section class="introduction" id="ch-groebner-basis-2"><div class="para" id="ch-groebner-basis-2-1">hello</div></section></section></div>
+<section class="introduction" id="ch-groebner-basis-2"><div class="para logical" id="ch-groebner-basis-2-1">
+<div class="para">If we wish to divide the single-variable polynomial <span class="process-math">\(f(x) \in \mathbb R[x]\)</span> by another polynomial of smaller order <span class="process-math">\(g(x)\in\mathbb R[x]\text{,}\)</span> we are looking for two new polynomials, <span class="process-math">\(q, r\)</span> such that:</div>
+<div class="displaymath process-math" id="ch-groebner-basis-2-1-4">
+\begin{align*}
+f(x)\amp = q\cdot g(x) + r, 
+\end{align*}
+</div>
+<div class="para">where <span class="process-math">\(q\)</span> is termed the <dfn class="terminology">quotient</dfn> and <span class="process-math">\(r\)</span> the <dfn class="terminology">remainder</dfn>. To find such a <span class="process-math">\(q\text{ and } r\text{,}\)</span> we follow a methodology called the <dfn class="terminology">division algorithm</dfn>.</div>
+</div></section><section class="section" id="sec-division-algorithm"><h3 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">5.1</span><span class="space"> </span><span class="title">The Division Algorithm</span>
+</h3>
+<div class="para logical" id="sec-division-algorithm-2">
+<div class="para">The division algorithm is comprised of four steps for the above specific <span class="process-math">\(f(x)\text{ and }g(x)\text{:}\)</span>
+</div>
+<ol class="decimal" id="sec-division-algorithm-2-2">
+<li id="sec-division-algorithm-2-2-1">
+<div class="para" id="sec-division-algorithm-2-2-1-1">Divide the leading term of <span class="process-math">\(f(x),\;\textbf{LT}(f(x))\)</span> by the leading term of <span class="process-math">\(g(x),\;\textbf{LT}(g(x))\text{.}\)</span> Add this to the quotient <span class="process-math">\(q\text{.}\)</span>
+</div>
+<div class="para" id="sec-division-algorithm-2-2-1-2"><em class="emphasis">Here, we denote the <dfn class="terminology">leading term</dfn> as the part of the polynomial with highest degree. For example, <span class="process-math">\(\textbf{LT}(x^2+3x+2)=x^2\text{.}\)</span></em></div>
+</li>
+<li id="sec-division-algorithm-2-2-2"><div class="para" id="sec-division-algorithm-2-2-2-1">Multiply the divisor, <span class="process-math">\(g(x)\text{,}\)</span> by the result from Step 1.</div></li>
+<li id="sec-division-algorithm-2-2-3">
+<div class="para" id="sec-division-algorithm-2-2-3-1">Now, repeat the entire process with <span class="process-math">\(f(x):=f(x) - \frac{\textbf{LT}(f(x))}{\textbf{LT}(g(x))}\cdot g(x)\)</span> until the degree of <span class="process-math">\(f(x)\)</span> is less than the degree of <span class="process-math">\(g(x)\text{.}\)</span>
+</div>
+<div class="para" id="sec-division-algorithm-2-2-3-2">The final <span class="process-math">\(f(x)\)</span> is our remainder, <span class="process-math">\(r\text{.}\)</span>
+</div>
+</li>
+</ol>
+<div class="para">This process can be repeated for any polynomial, not only in <span class="process-math">\(\mathbb R[x]\text{,}\)</span> but for any field <span class="process-math">\(\mathbb K[x]\text{.}\)</span> However, given two polynomials, <span class="process-math">\(g(x), k(x)\text{,}\)</span> can we ensure that the order of division does not matter? Is is associative?</div>
+</div>
+<div class="para logical" id="sec-division-algorithm-3">
+<div class="para">We know that this is the case in <span class="process-math">\(\mathbb R\text{.}\)</span> Consider <span class="process-math">\(a,b,c\in \mathbb R\text{.}\)</span> We know that:</div>
+<div class="displaymath process-math" id="sec-division-algorithm-3-3">
+\begin{align*}
+\frac{\frac{a}{b}}{c} \amp = \frac{\frac{a}c}b. 
+\end{align*}
+</div>
+<div class="para">This same property <em class="emphasis">also holds</em> also in <span class="process-math">\(\mathbb K[x]\text{.}\)</span> However, this property <em class="emphasis">only</em> holds in the single-variable case. For <span class="process-math">\(\mathbb K[x,y]\text{.}\)</span> Consider <span class="process-math">\(f(x)=xy + 1,\)</span> <span class="process-math">\(g(x)=xy,\)</span> and <span class="process-math">\(k(x)=y+1\text{.}\)</span> Via the division algorithm, we get that:</div>
+<div class="displaymath process-math" id="sec-division-algorithm-3-11">
+\begin{align*}
+\frac{\frac{f(x)}{g(x)}}{k(x)} \amp = 1 \cdot g(x) + 1 \\
+\frac{\frac{f(x)}{k(x)}}{g(x)}\amp = x\cdot k(x) - (x+1)
+\end{align*}
+</div>
+<div class="para">With the same algorithm, we got two different remainders that are not divisible by the remaining polynomial. This may lead one to believe that consistent division of multivariable polynomails is simply <em class="emphasis">impossible</em>, but that is far from the case. Mathematicians far more intelligent than the authors of this textbook have devised methods to resolve this mathematical snail crevice.</div>
+</div></section><section class="section" id="sec-term-ordering"><h3 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">5.2</span><span class="space"> </span><span class="title">Term Ordering</span>
+</h3>
+<div class="para" id="sec-term-ordering-2"></div></section></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="ch-permutation-actions.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-skew-invariants.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
