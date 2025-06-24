@@ -50,7 +50,7 @@
                 <mrow>\frac{\frac{f(x)}{g(x)}}{k(x)} \amp = 1 \cdot g(x) + 1 </mrow>
                 <mrow> \frac{\frac{f(x)}{k(x)}}{g(x)}\amp = x\cdot k(x) - (x+1)</mrow>
             </md>
-            With the same algorithm, we got two different remainders that are not divisible by the remaining polynomial. This may lead one to believe that consistent division of multivariable polynomails is simply <em>impossible</em>, but that is far from the case. Mathematicians far more intelligent than the authors of this textbook have devised methods to resolve this mathematical snail crevice. 
+            With the same algorithm, we got two different remainders that are not divisible by the remaining polynomial. This may lead one to believe that consistent division of multivariable polynomials is simply <em>impossible</em>, but that is far from the case. Mathematicians far more intelligent than the authors of this textbook have devised methods to resolve this mathematical snail crevice. 
         </p>
     </section>
     <section xml:id="sec-term-ordering">
