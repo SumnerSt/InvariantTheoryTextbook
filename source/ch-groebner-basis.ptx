@@ -14,7 +14,7 @@
     <section xml:id="sec-division-algorithm">
         <title>The Division Algorithm</title>
         <p>
-            The division algorithm is comprised of four steps for the above specific <m>f(x)\text{ and }g(x)</m>:
+            The division algorithm is compromised of four steps for the above specific <m>f(x)\text{ and }g(x)</m>:
             <ol>
                 <li>
                     <p>
@@ -38,14 +38,14 @@
                     </p>
                 </li>
             </ol>
-            This process can be repeated for any polynomial, not only in <m>\mathbb R[x]</m>, but for any field <m>\mathbb K[x]</m>. However, given two polynomials, <m>g(x), k(x)</m>, can we ensure that the order of division does not matter? Is is associative?
+            This process can be repeated for any polynomial, not only in <m>\mathbb R[x]</m>, but for any field <m>\mathbb K[x]</m>. However, given two polynomials, <m>g(x), k(x)</m>, can we ensure that the order of division does not matter? Is it associative?
         </p>
         <p>
             We know that this is the case in <m>\mathbb R</m>. Consider <m>a,b,c\in \mathbb R</m>. We know that:
             <md>
                 <mrow>\frac{\frac{a}{b}}{c} \amp = \frac{\frac{a}c}b. </mrow>
             </md>
-            This same property <em>also holds</em> also in <m>\mathbb K[x]</m>. However, this property <em>only</em> holds in the single-variable case. For <m>\mathbb K[x,y]</m>. Consider <m>f(x)=xy + 1,</m> <m>g(x)=xy,</m> and <m>k(x)=y+1</m>. Via the division algorithm, we get that:
+            This same property <em>also holds</em> in <m>\mathbb K[x]</m>. However, this property <em>only</em> holds in the single-variable case. For <m>\mathbb K[x,y]</m>, consider <m>f(x)=xy + 1,</m> <m>g(x)=xy,</m> and <m>k(x)=y+1</m>. Via the division algorithm, we get that:
             <md>
                 <mrow>\frac{\frac{f(x)}{g(x)}}{k(x)} \amp = 1 \cdot g(x) + 1 </mrow>
                 <mrow> \frac{\frac{f(x)}{k(x)}}{g(x)}\amp = x\cdot k(x) - (x+1)</mrow>
