@@ -38,7 +38,30 @@
                     </p>
                 </li>
             </ol>
-            This process can be repeated for any polynomial, not only in <m>\mathbb R[x]</m>, but for any field <m>\mathbb K[x]</m>. However, given two polynomials, <m>g(x), k(x)</m>, can we ensure that the order of division does not matter? Is it associative?
+            This process can be repeated for any polynomial, not only in <m>\mathbb R[x]</m>, but for any field <m>\mathbb K[x]</m>. Below, take the two polynomials:
+            <md>
+                <mrow>f(x) \amp = x^2+2x+1 </mrow>
+                <mrow>g(x) \amp = x+1.</mrow>
+            </md>
+        </p>
+        <p>
+            We can evaluate the result of the division algorithm in <c>Macaulay2</c> with the <c>//</c> (division) operator and the <c>%</c> (modulus) operator.
+        </p>
+
+        <sage language="macaulay2">
+            <input>
+                QQ[x];
+                f = x^2+2*x+1;
+                g = x+1;
+                q = f // g; -- gives q (quotient)
+                r = f % g; -- gives r (remainder)
+                print ("Quotient: " | toString q);
+                print ("Remainder: " | toString r);
+            </input>
+        </sage>
+
+        <p>
+            However, given two polynomials, <m>g(x), k(x)</m>, can we ensure that the order of division does not matter? Is it associative?
         </p>
         <p>
             We know that this is the case in <m>\mathbb R</m>. Consider <m>a,b,c\in \mathbb R</m>. We know that:
@@ -56,9 +79,151 @@
     <section xml:id="sec-term-ordering">
         <title>Term Ordering</title>
         <p>
-            
+            One of the primary issues with our division above is that we did not specify an ordering in which we divide our polynomials. This is how we got two different quotients and remainders. So instead of randomly choosing order, we establish an <term>ordering</term> beforehand. 
         </p>
+        <p>
+            For an <term>ordering</term> to be valid, it must be able to take two distinct monomials and give one <em>priority</em> over the other, such that for any two monomials of finite variables<m>f(x_1,\, ... \, , x_n) \ne g(x_1,\, ... \, , x_n)</m>, we can  establish the strict total order that:
+            <md>
+                <mrow> f \gt g \text { or } f \lt g</mrow>
+            </md>
+            <term>Lex ordering</term> (lexographic ordering), is one of these ordering strategies where we compare two polynomials based on the succession of the typical english alphabet (e.g. <m>a,\,b,\,c,\,d,\, ...</m>). We say that:
+            <md>
+                <mrow>a \gt b \gt c \gt d \gt ...</mrow>
+            </md>
+            So for example, for <m>f(\overline{\mathbf{a}}) = ac, \;g\mvar a = bc</m>, we have that:
+            <md>
+                <mrow>f\mvar a \amp \gt g\mvar a</mrow>
+                <mrow>a^1 \amp \gt a^0.</mrow>
+            </md>
+            This is because the <m>a</m> term of <m>f</m> has higher degree than the <m>a</m> term of <m>g</m>. 
+        </p>
+        <p>
+            However, consider <m>k(\overline{\mathbf{a}}) = ab</m>. <m>k</m> and <m>f=ac</m> have the same degree <m>a</m> term, so we then move onto the next element of our ordering, <m>b</m>. Thus we have that:
+            <md>
+                <mrow>k(\overline{\mathbf{a}}) \amp \gt f(\overline{\mathbf{a}}), \text{ because} </mrow>
+                <mrow>a^1\amp = a^1,\text{ but,}</mrow> 
+                <mrow>b^1 \amp \gt b^0.</mrow>
+            </md>
+            An algorithmic method to understand this process is to imagine each monomial as an exponent vector <m>(\alpha_a, \alpha_b, \alpha_c, \,...)</m>, where each <m>\alpha</m> represents the degree of each variable. 
+        </p>
+                
+        <p> 
+            For example, the exponent vector of <m>a^2bc^2</m> would be  <m>(2, 1, 2, 0, \,...)</m> and <m>a^2bc^2d \mapsto (2, 1, 2, 1, \,...)</m>. We then can compare the values of the exponent vectors of each polynomial: 
+            <md>
+                <mrow> \amp (2, 1, 2, 0, \,...)</mrow>
+                <mrow> \amp (2, 1, 2, 1, \,...)</mrow>
+            </md>
+            Because the first three terms of each polynomial <em>are equal</em>, they appear identical. However, because the fourth terms (representing <m>d</m>), are <em>not equal</em>, we can establish a lex ordering. Because <m>d^1 \gt d^0</m>, we say that <m>a^2bc^2d \gt a^2bc^2</m>.
+        </p>
+        <p>
+            Although <term>lex ordering</term> is straightforward, it is not always the most ideal ordering to work with, especially computationally. There are various types of others <term>term orderings</term>. Consider the polynomials <m>f(\mathbf{x})=a^3b</m> and <m>g(\mathbf{x})=ab^4</m> in the below orderings:
+            <table>
+                <title>Orderings</title>
+                <tabular halign="center">
+                    <row header="yes" bottom="minor" >
+                    <cell>Ordering</cell>
+                    <cell>Macaulay2</cell>
+                    <cell>Definition </cell>
+                    <cell>Usage</cell>
+                    </row>
+                    <row>
+                    <cell>Lex</cell>
+                    <cell><c>Lex</c></cell>
+                    <cell>Alphabetical, 
+                        then <em>higher</em> degree.</cell>
+                    <cell><m>f \gt g</m></cell>
+                    </row>
+                    <row>
+                    <cell>Graded Lex</cell>
+                    <cell><c>GLex</c></cell>
+                    <cell><em>Higher</em> degree, then alphabetical.</cell>
+                    <cell><m>g \gt f</m></cell>
+                    </row>
+                    <row>
+                    <cell>Grd. Rev. Lex</cell>
+                    <cell><c>GRevLex</c></cell>
+                    <cell><em>Higher</em> degree, then <em>reverse</em> alphabetical.</cell>
+                    <cell><m>g \gt f</m></cell>
+                    </row>
+                    <row>
+                    <cell>Reverse Lex</cell>
+                    <cell><c>RevLex</c></cell>
+                    <cell>Reverse alphabetical, then <em>lower </em> degree.</cell>
+                    <cell><m>f \gt g</m></cell>
+                    </row>
+                </tabular>
+            </table>
+            In <term>Macaulay2</term>, the default lex ordering is <c>GRevLex</c>, though this can be changed in the definition of a ring. Below is an example of Macaulay2 handling term order with the <c>MonomialOrder</c> option.
+            <listing>
+                <title><term>Lex/RevLex Macaulay2 Example</term></title>
+                <console>
+                    <output>
+                        i1 : R = QQ[x,y,z, MonomialOrder => Lex];
 
+                        i2 : f := z^2 + y*x^2 + z*x^2
+
+                              2     2     2
+                        o2 = x y + x z + z
+
+                        o2 : R
+
+                        i5 : R = QQ[x,y,z, MonomialOrder => RevLex, Global => false];
+
+                        i7 : f := z^2 + y*x^2 + z*x^2
+
+                              2    2     2
+                        o7 = z  + x z + x y
+
+                        o7 : R
+                    </output>
+                </console>
+            </listing>
+            Note that we must redefine <c>f</c> in order for our changes to apply. Furthermore, we must set the <c>Global</c> attribute to false, because defining any ring initially with a monomial ordering (like in the first line with <c>MonomialOrder => Lex</c>) updates the default ordering automatically. 
+        </p>
+    </section>
+    <section xml:id="sec-Grobner-Bases">
+        <title>Gröbner Bases</title>
+        <p>
+            Now that we have established an ordering on our polynomials, we can reintroduce the idea of a <term>Leading Term</term>. In the single-variate case, <m>\mathbb K[x]</m>, our leading term was simply the term with highest degree <m>d</m>.
+        </p>
+        <p>
+            However, with an ordering like <term>Graded Lexographic</term> order, our leading-term would be one with <em>highest degree</em>, and then <em>highest alphabetization</em>. For example, 
+            <md>
+                <mrow>\mathbf{LT}_\text{GLex}(x^2y^2+x^2z^2) \amp =x^2y^2 </mrow>
+            </md>
+            Another common phrasing is to call the leading term the <term>Initial Monomial</term>, denoted <m>\mathbf{in}_\prec(f(\overline{\mathbf{x}}))</m>. Note that initial monomials must be with respect to an ordering system (in this case, <em>Graded Lex</em>).
+        </p>
+        <p>
+            Similar to the initial monomial, mathematicians have defined an <term>Initial Ideal</term> to represent a parallel concept. Consider the ideal <m>I</m>. The <term>Initial Ideal</term> of <m>I</m> is defined as:
+            <md>
+                <mrow>\ginit I \amp = \gideal{\ginit z\mid z\in I} </mrow>
+            </md>
+            Although we can form initial ideals from the elements of the ideals themselves, we can also generate initial ideals from finite sets. 
+        </p>
+        <p>
+            Consider a set of monomials, <m>\mathrm F</m>. If we have that:
+            <md>
+                <mrow>\ginit I \amp = \gideal{\ginit f \mid f\in \mathrm F}, </mrow>
+            </md>
+            then we say that <m>\mathrm F</m> is a <term>Gröbner Basis</term> of <m>I.</m>
+        </p>
+        <p>
+            Gröbner bases are particularly useful for solving a wide variety of elimination, ideal membership, and systems of equations problems, among others. However, note that the the Gröbner basis is a special case. The initial monomials of sets that generate an ideal <em>do not always generate the initial ideal</em>. In mathematical language,
+            <md>
+                <mrow>I = \gideal F \nLeftrightarrow \ginit I = \gideal{\ginit F}.</mrow>
+            </md>
+            This makes the computation of a Gröbner basis of special important to algebraists. A common method of computing a Gröbner Basis is Buchberger's Algorithm
+        </p>
+    </section>
+    <section xml:id="sec-Buchbergers-Criterion">
+        <title>Buchberger's Criterion</title>
+        <p>
+             He basically says "apple dog." Here is my proof:
+            <md>
+                <mrow>\mathrm{buchburger }  \implies \textit{ "apple dog!" }\;\square </mrow>
+            </md>
+        </p>
+       
     </section>
 
 </chapter>

@@ -5,6 +5,10 @@
   <docinfo>
     <macros>
       \newcommand{\R}{\mathbb R}
+      \newcommand{\K}{\mathbb K}
+      \newcommand{\mvar}[1]{(\overline{\mathbf{#1}})}
+      \newcommand{\ginit}[1]{\mathbf{in}_\prec(#1)}
+      \newcommand{\gideal}[1]{\langle #1\rangle}
     </macros>
     <latex-image-preamble>
       \usepackage{tikz}
